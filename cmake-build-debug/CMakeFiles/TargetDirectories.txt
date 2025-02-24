@@ -1,0 +1,3 @@
+C:/Univer/courseWork/cmake-build-debug/CMakeFiles/courseWork.dir
+C:/Univer/courseWork/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Univer/courseWork/cmake-build-debug/CMakeFiles/rebuild_cache.dir
