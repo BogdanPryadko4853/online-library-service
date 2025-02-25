@@ -35,7 +35,7 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 53,
+				"line" : 54,
 				"parent" : 0
 			},
 			{
@@ -190,7 +190,8 @@
 				32,
 				38,
 				39,
-				40
+				40,
+				41
 			]
 		}
 	],
@@ -420,6 +421,11 @@
 		{
 			"backtrace" : 1,
 			"path" : "include/controllers/UserController.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "include/repositories/Repository.h",
 			"sourceGroupIndex" : 1
 		}
 	],

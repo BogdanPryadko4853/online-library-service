@@ -5,16 +5,11 @@
 #include <memory>
 #include <algorithm>
 #include "../enteties/Library.h"
+#include "Repository.h"
 
-class LibraryRepository {
+class LibraryRepository : Repository<Library> {
 private:
     std::vector<std::shared_ptr<Library>> libraries;
-
-public:
-    void addLibrary(const std::shared_ptr<Library>& library);
-    void removeLibrary(const std::shared_ptr<Library>& library);
-    std::shared_ptr<Library> findLibraryById(int id) const;
-    std::vector<std::shared_ptr<Library>> getAllLibraries() const;
 };
 
 #endif
