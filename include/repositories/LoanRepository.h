@@ -6,7 +6,7 @@
 #include "../enteties//Loan.h"
 #include "Repository.h"
 
-class LoanRepository : Repository<Loan> {
+class LoanRepository : public  Repository<Loan> {
 private:
     std::vector<std::shared_ptr<Loan>> loans;
 public:

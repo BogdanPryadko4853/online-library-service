@@ -7,7 +7,7 @@
 #include "../enteties/Library.h"
 #include "Repository.h"
 
-class LibraryRepository : Repository<Library> {
+class LibraryRepository : public  Repository<Library> {
 private:
     std::vector<std::shared_ptr<Library>> libraries;
 public:

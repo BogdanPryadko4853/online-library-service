@@ -5,7 +5,7 @@ LibraryController::LibraryController(const std::shared_ptr<LibraryService>& serv
 
 void LibraryController::setupRoutes(crow::SimpleApp& app) {
     CROW_ROUTE(app, "/libraries")([this]() {
-        auto libraries = libraryService->getAllLibraries();
+        auto libraries = libraryService->getAll();
         crow::json::wvalue result;
         for (size_t i = 0; i < libraries.size(); ++i) {
             result[i]["id"] = libraries[i]->getId();
@@ -17,7 +17,7 @@ void LibraryController::setupRoutes(crow::SimpleApp& app) {
     });
 
     CROW_ROUTE(app, "/libraries/<int>")([this](int id) {
-        auto library = libraryService->getLibraryById(id);
+        auto library = libraryService->getById(id);
         if (library) {
             crow::json::wvalue result;
             result["id"] = library->getId();
@@ -56,7 +56,7 @@ void LibraryController::setupRoutes(crow::SimpleApp& app) {
     });
 
     CROW_ROUTE(app, "/libraries/<int>").methods("DELETE"_method)([this](int id) {
-        libraryService->deleteLibrary(id);
+        libraryService->deleteById(id);
         return crow::response(200, "Library deleted");
     });
 }

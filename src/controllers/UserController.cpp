@@ -5,7 +5,7 @@ UserController::UserController(const std::shared_ptr<UserService>& service)
 
 void UserController::setupRoutes(crow::SimpleApp& app) {
     CROW_ROUTE(app, "/users")([this]() {
-        auto users = userService->getAllUsers();
+        auto users = userService->getAll();
         crow::json::wvalue result;
         for (size_t i = 0; i < users.size(); ++i) {
             result[i]["id"] = users[i]->getId();
@@ -16,7 +16,7 @@ void UserController::setupRoutes(crow::SimpleApp& app) {
     });
 
     CROW_ROUTE(app, "/users/<int>")([this](int id) {
-        auto user = userService->getUserById(id);
+        auto user = userService->getById(id);
         if (user) {
             crow::json::wvalue result;
             result["id"] = user->getId();
@@ -41,7 +41,7 @@ void UserController::setupRoutes(crow::SimpleApp& app) {
     });
 
     CROW_ROUTE(app, "/users/<int>").methods("DELETE"_method)([this](int id) {
-        userService->deleteUser(id);
+        userService->deleteById(id);
         return crow::response(200, "User deleted");
     });
 }

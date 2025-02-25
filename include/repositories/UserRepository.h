@@ -7,7 +7,7 @@
 #include "../enteties//User.h"
 #include "Repository.h"
 
-class UserRepository : Repository<User> {
+class UserRepository : public  Repository<User> {
 private:
     std::vector<std::shared_ptr<User>> users;
 public:

@@ -2,7 +2,7 @@
 
 void LoanController::setupRoutes(crow::SimpleApp& app) {
     CROW_ROUTE(app, "/loans")([this]() {
-        auto loans = loanService->getAllLoans();
+        auto loans = loanService->getAll();
         crow::json::wvalue result;
         for (size_t i = 0; i < loans.size(); ++i) {
             result[i]["id"] = loans[i]->getId();
@@ -15,7 +15,7 @@ void LoanController::setupRoutes(crow::SimpleApp& app) {
     });
 
     CROW_ROUTE(app, "/loans/<int>")([this](int id) {
-        auto loan = loanService->getLoanById(id);
+        auto loan = loanService->getById(id);
         if (loan) {
             crow::json::wvalue result;
             result["id"] = loan->getId();
@@ -41,8 +41,8 @@ void LoanController::setupRoutes(crow::SimpleApp& app) {
         auto loanDate = std::chrono::system_clock::from_time_t(body["loanDate"].i());
         auto returnDate = std::chrono::system_clock::from_time_t(body["returnDate"].i());
 
-        auto book = bookService->getBookById(bookId);
-        auto user = userService->getUserById(userId);
+        auto book = bookService->getById(bookId);
+        auto user = userService->getById(userId);
 
         if (!book) {
             return crow::response(404, "Book not found");
@@ -54,7 +54,7 @@ void LoanController::setupRoutes(crow::SimpleApp& app) {
         return crow::response(201, "Loan created");
     });
     CROW_ROUTE(app, "/loans/<int>").methods("DELETE"_method)([this](int id) {
-        loanService->deleteLoan(id);
+        loanService->deleteById(id);
         return crow::response(200, "Loan deleted");
     });
 }

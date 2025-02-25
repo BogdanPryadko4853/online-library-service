@@ -5,7 +5,7 @@ AuthorController::AuthorController(const std::shared_ptr<AuthorService>& service
 
 void AuthorController::setupRoutes(crow::SimpleApp& app) {
     CROW_ROUTE(app, "/authors")([this]() {
-        auto authors = authorService->getAllAuthors();
+        auto authors = authorService->getAll();
         crow::json::wvalue result;
         for (size_t i = 0; i < authors.size(); ++i) {
             result[i]["id"] = authors[i]->getId();
@@ -17,7 +17,7 @@ void AuthorController::setupRoutes(crow::SimpleApp& app) {
     });
 
     CROW_ROUTE(app, "/authors/<int>")([this](int id) {
-        auto author = authorService->getAuthorById(id);
+        auto author = authorService->getById(id);
         if (author) {
             crow::json::wvalue result;
             result["id"] = author->getId();

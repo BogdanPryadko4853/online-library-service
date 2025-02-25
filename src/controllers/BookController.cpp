@@ -5,7 +5,7 @@ BookController::BookController(const std::shared_ptr<BookService>& service)
 
 void BookController::setupRoutes(crow::SimpleApp& app) {
     CROW_ROUTE(app, "/books")([this]() {
-        auto books = bookService->getAllBooks();
+        auto books = bookService->getAll();
         crow::json::wvalue result;
         for (size_t i = 0; i < books.size(); ++i) {
             result[i]["id"] = books[i]->getId();
@@ -17,7 +17,7 @@ void BookController::setupRoutes(crow::SimpleApp& app) {
     });
 
     CROW_ROUTE(app, "/books/<int>")([this](int id) {
-        auto book = bookService->getBookById(id);
+        auto book = bookService->getById(id);
         if (book) {
             crow::json::wvalue result;
             result["id"] = book->getId();
