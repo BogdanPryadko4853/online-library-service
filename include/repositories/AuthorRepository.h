@@ -10,6 +10,7 @@
 class AuthorRepository : public Repository<Author> {
 private:
     std::vector<std::shared_ptr<Author>> authors;
+
 };
 
 #endif

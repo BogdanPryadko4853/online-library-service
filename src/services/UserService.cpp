@@ -5,20 +5,20 @@ UserService::UserService(std::shared_ptr<UserRepository> repo)
 
 void UserService::createUser(int id, const std::string& firstName,const std::string& lastName) {
     auto user = std::make_shared<User>(id, firstName, lastName);
-    userRepository->addUser(user);
+    userRepository->add(user);
 }
 
 void UserService::deleteUser(int id) {
-    auto user = userRepository->findUserById(id);
+    auto user = userRepository->findById(id);
     if (user) {
-        userRepository->removeUser(user);
+        userRepository->remove(user);
     }
 }
 
 std::shared_ptr<User> UserService::getUserById(int id) const {
-    return userRepository->findUserById(id);
+    return userRepository->findById(id);
 }
 
 std::vector<std::shared_ptr<User>> UserService::getAllUsers() const {
-    return userRepository->getAllUsers();
+    return userRepository->getAll();
 }
