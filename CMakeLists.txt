@@ -38,6 +38,16 @@ add_executable(courseWork main.cpp
         include/controllers/AuthController.h
         src/controllers/AuthController.cpp
         include/controllers/BookController.h
-        src/controllers/BookController.cpp)
+        src/controllers/BookController.cpp
+        include/services/LoanSerivce.h
+        include/services/UserService.h
+        src/services/LoanService.cpp
+        src/services/UserService.cpp
+        src/controllers/LoanController.cpp
+        src/controllers/LibraryController.cpp
+        src/controllers/UserController.cpp
+        include/controllers/LibraryController.h
+        include/controllers/LoanController.h
+        include/controllers/UserController.h)
 
 target_link_libraries(courseWork Ws2_32 Mswsock)

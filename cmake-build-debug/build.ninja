@@ -161,6 +161,41 @@ build CMakeFiles/courseWork.dir/src/controllers/BookController.cpp.obj: CXX_COMP
   OBJECT_DIR = CMakeFiles\courseWork.dir
   OBJECT_FILE_DIR = CMakeFiles\courseWork.dir\src\controllers
 
+build CMakeFiles/courseWork.dir/src/services/LoanService.cpp.obj: CXX_COMPILER__courseWork_unscanned_Debug C$:/Univer/courseWork/src/services/LoanService.cpp || cmake_object_order_depends_target_courseWork
+  DEP_FILE = CMakeFiles\courseWork.dir\src\services\LoanService.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -IC:/asio/asio-1.30.2/include -IC:/crow/include
+  OBJECT_DIR = CMakeFiles\courseWork.dir
+  OBJECT_FILE_DIR = CMakeFiles\courseWork.dir\src\services
+
+build CMakeFiles/courseWork.dir/src/services/UserService.cpp.obj: CXX_COMPILER__courseWork_unscanned_Debug C$:/Univer/courseWork/src/services/UserService.cpp || cmake_object_order_depends_target_courseWork
+  DEP_FILE = CMakeFiles\courseWork.dir\src\services\UserService.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -IC:/asio/asio-1.30.2/include -IC:/crow/include
+  OBJECT_DIR = CMakeFiles\courseWork.dir
+  OBJECT_FILE_DIR = CMakeFiles\courseWork.dir\src\services
+
+build CMakeFiles/courseWork.dir/src/controllers/LoanController.cpp.obj: CXX_COMPILER__courseWork_unscanned_Debug C$:/Univer/courseWork/src/controllers/LoanController.cpp || cmake_object_order_depends_target_courseWork
+  DEP_FILE = CMakeFiles\courseWork.dir\src\controllers\LoanController.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -IC:/asio/asio-1.30.2/include -IC:/crow/include
+  OBJECT_DIR = CMakeFiles\courseWork.dir
+  OBJECT_FILE_DIR = CMakeFiles\courseWork.dir\src\controllers
+
+build CMakeFiles/courseWork.dir/src/controllers/LibraryController.cpp.obj: CXX_COMPILER__courseWork_unscanned_Debug C$:/Univer/courseWork/src/controllers/LibraryController.cpp || cmake_object_order_depends_target_courseWork
+  DEP_FILE = CMakeFiles\courseWork.dir\src\controllers\LibraryController.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -IC:/asio/asio-1.30.2/include -IC:/crow/include
+  OBJECT_DIR = CMakeFiles\courseWork.dir
+  OBJECT_FILE_DIR = CMakeFiles\courseWork.dir\src\controllers
+
+build CMakeFiles/courseWork.dir/src/controllers/UserController.cpp.obj: CXX_COMPILER__courseWork_unscanned_Debug C$:/Univer/courseWork/src/controllers/UserController.cpp || cmake_object_order_depends_target_courseWork
+  DEP_FILE = CMakeFiles\courseWork.dir\src\controllers\UserController.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -IC:/asio/asio-1.30.2/include -IC:/crow/include
+  OBJECT_DIR = CMakeFiles\courseWork.dir
+  OBJECT_FILE_DIR = CMakeFiles\courseWork.dir\src\controllers
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target courseWork
@@ -169,7 +204,7 @@ build CMakeFiles/courseWork.dir/src/controllers/BookController.cpp.obj: CXX_COMP
 #############################################
 # Link the executable courseWork.exe
 
-build courseWork.exe: CXX_EXECUTABLE_LINKER__courseWork_Debug CMakeFiles/courseWork.dir/main.cpp.obj CMakeFiles/courseWork.dir/src/enteties/Book.cpp.obj CMakeFiles/courseWork.dir/src/enteties/Library.cpp.obj CMakeFiles/courseWork.dir/src/enteties/Loan.cpp.obj CMakeFiles/courseWork.dir/src/enteties/User.cpp.obj CMakeFiles/courseWork.dir/src/enteties/Author.cpp.obj CMakeFiles/courseWork.dir/src/repositories/UserRepository.cpp.obj CMakeFiles/courseWork.dir/src/repositories/BookRepository.cpp.obj CMakeFiles/courseWork.dir/src/repositories/LoanRepository.cpp.obj CMakeFiles/courseWork.dir/src/repositories/LibraryRepository.cpp.obj CMakeFiles/courseWork.dir/src/repositories/AuthorRepository.cpp.obj CMakeFiles/courseWork.dir/src/services/AuthorService.cpp.obj CMakeFiles/courseWork.dir/src/services/BookService.cpp.obj CMakeFiles/courseWork.dir/src/services/LibraryService.cpp.obj CMakeFiles/courseWork.dir/src/controllers/AuthController.cpp.obj CMakeFiles/courseWork.dir/src/controllers/BookController.cpp.obj
+build courseWork.exe: CXX_EXECUTABLE_LINKER__courseWork_Debug CMakeFiles/courseWork.dir/main.cpp.obj CMakeFiles/courseWork.dir/src/enteties/Book.cpp.obj CMakeFiles/courseWork.dir/src/enteties/Library.cpp.obj CMakeFiles/courseWork.dir/src/enteties/Loan.cpp.obj CMakeFiles/courseWork.dir/src/enteties/User.cpp.obj CMakeFiles/courseWork.dir/src/enteties/Author.cpp.obj CMakeFiles/courseWork.dir/src/repositories/UserRepository.cpp.obj CMakeFiles/courseWork.dir/src/repositories/BookRepository.cpp.obj CMakeFiles/courseWork.dir/src/repositories/LoanRepository.cpp.obj CMakeFiles/courseWork.dir/src/repositories/LibraryRepository.cpp.obj CMakeFiles/courseWork.dir/src/repositories/AuthorRepository.cpp.obj CMakeFiles/courseWork.dir/src/services/AuthorService.cpp.obj CMakeFiles/courseWork.dir/src/services/BookService.cpp.obj CMakeFiles/courseWork.dir/src/services/LibraryService.cpp.obj CMakeFiles/courseWork.dir/src/controllers/AuthController.cpp.obj CMakeFiles/courseWork.dir/src/controllers/BookController.cpp.obj CMakeFiles/courseWork.dir/src/services/LoanService.cpp.obj CMakeFiles/courseWork.dir/src/services/UserService.cpp.obj CMakeFiles/courseWork.dir/src/controllers/LoanController.cpp.obj CMakeFiles/courseWork.dir/src/controllers/LibraryController.cpp.obj CMakeFiles/courseWork.dir/src/controllers/UserController.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lWs2_32  -lMswsock  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\courseWork.dir
