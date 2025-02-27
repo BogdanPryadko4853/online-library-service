@@ -29,6 +29,7 @@ int main() {
     auto userRepo = UserRepository::getInstance();
 
     bookRepo->addObserver(logger);
+    authorRepo->addObserver(logger);
 
 
     auto authorService = std::make_shared<AuthorService>(authorRepo);
