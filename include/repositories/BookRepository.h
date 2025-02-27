@@ -1,20 +1,27 @@
 #ifndef BOOKREPOSITORY_H
 #define BOOKREPOSITORY_H
 
-#include <vector>
-#include <memory>
-#include <algorithm>
 #include "../enteties/Book.h"
 #include "Repository.h"
 
-class BookRepository: public Repository<Book> {
+class BookRepository : public Repository<Book> {
 private:
-    std::vector<std::shared_ptr<Book>> books;
+    BookRepository() = default;
+
+    BookRepository(const BookRepository &) = delete;
+
+    BookRepository &operator=(const BookRepository &) = delete;
+
+    static std::shared_ptr<BookRepository> instance;
+
 public:
-    using Repository<Book>::add;
-    using Repository<Book>::remove;
-    using Repository<Book>::findById;
-    using Repository<Book>::getAll;
+    // Метод для доступа к экземпляру
+    static std::shared_ptr<BookRepository> getInstance() {
+        if (!instance) {
+            instance = std::shared_ptr<BookRepository>(new BookRepository());
+        }
+        return instance;
+    }
 };
 
 #endif

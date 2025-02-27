@@ -1,20 +1,26 @@
 #ifndef AUTHORREPOSITORY_H
 #define AUTHORREPOSITORY_H
 
-#include <vector>
-#include <memory>
-#include <algorithm>
 #include "../enteties/Author.h"
 #include "Repository.h"
 
 class AuthorRepository : public Repository<Author> {
 private:
-    std::vector<std::shared_ptr<Author>> authors;
+    AuthorRepository() = default;
+
+    AuthorRepository(const AuthorRepository &) = delete;
+
+    AuthorRepository &operator=(const AuthorRepository &) = delete;
+
+    static std::shared_ptr<AuthorRepository> instance;
+
 public:
-    using Repository<Author>::add;
-    using Repository<Author>::remove;
-    using Repository<Author>::findById;
-    using Repository<Author>::getAll;
+    static std::shared_ptr<AuthorRepository> getInstance() {
+        if (!instance) {
+            instance = std::shared_ptr<AuthorRepository>(new AuthorRepository());
+        }
+        return instance;
+    }
 };
 
 #endif

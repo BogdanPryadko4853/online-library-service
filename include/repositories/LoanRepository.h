@@ -1,19 +1,27 @@
 #ifndef LOANREPOSITORY_H
 #define LOANREPOSITORY_H
 
-#include <vector>
-#include <memory>
-#include "../enteties//Loan.h"
+#include "../enteties/Loan.h"
 #include "Repository.h"
 
-class LoanRepository : public  Repository<Loan> {
+class LoanRepository : public Repository<Loan> {
 private:
-    std::vector<std::shared_ptr<Loan>> loans;
+    LoanRepository() = default;
+
+    LoanRepository(const LoanRepository &) = delete;
+
+    LoanRepository &operator=(const LoanRepository &) = delete;
+
+    static std::shared_ptr<LoanRepository> instance;
+
 public:
-    using Repository<Loan>::add;
-    using Repository<Loan>::remove;
-    using Repository<Loan>::findById;
-    using Repository<Loan>::getAll;
+    // Метод для доступа к экземпляру
+    static std::shared_ptr<LoanRepository> getInstance() {
+        if (!instance) {
+            instance = std::shared_ptr<LoanRepository>(new LoanRepository());
+        }
+        return instance;
+    }
 };
 
 #endif

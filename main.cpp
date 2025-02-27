@@ -19,11 +19,12 @@
 
 int main() {
 
-    auto authorRepo = std::make_shared<AuthorRepository>();
-    auto bookRepo = std::make_shared<BookRepository>();
-    auto libraryRepo = std::make_shared<LibraryRepository>();
-    auto loanRepo = std::make_shared<LoanRepository>();
-    auto userRepo = std::make_shared<UserRepository>();
+    auto authorRepo = AuthorRepository::getInstance();
+    auto bookRepo = BookRepository::getInstance();
+    auto libraryRepo = LibraryRepository::getInstance();
+    auto loanRepo = LoanRepository::getInstance();
+    auto userRepo = UserRepository::getInstance();
+
 
     auto authorService = std::make_shared<AuthorService>(authorRepo);
     auto bookService = std::make_shared<BookService>(bookRepo);

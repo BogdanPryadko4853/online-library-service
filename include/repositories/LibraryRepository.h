@@ -1,20 +1,26 @@
 #ifndef LIBRARYREPOSITORY_H
 #define LIBRARYREPOSITORY_H
 
-#include <vector>
-#include <memory>
-#include <algorithm>
 #include "../enteties/Library.h"
 #include "Repository.h"
 
-class LibraryRepository : public  Repository<Library> {
+class LibraryRepository : public Repository<Library> {
 private:
-    std::vector<std::shared_ptr<Library>> libraries;
+    LibraryRepository() = default;
+
+    LibraryRepository(const LibraryRepository &) = delete;
+
+    LibraryRepository &operator=(const LibraryRepository &) = delete;
+
+    static std::shared_ptr<LibraryRepository> instance;
+
 public:
-    using Repository<Library>::add;
-    using Repository<Library>::remove;
-    using Repository<Library>::findById;
-    using Repository<Library>::getAll;
+    static std::shared_ptr<LibraryRepository> getInstance() {
+        if (!instance) {
+            instance = std::shared_ptr<LibraryRepository>(new LibraryRepository());
+        }
+        return instance;
+    }
 };
 
 #endif
