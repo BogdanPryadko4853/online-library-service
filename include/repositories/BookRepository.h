@@ -5,7 +5,7 @@
 #include "Repository.h"
 #include "../observer/Observable.h"
 
-class BookRepository : public Repository<Book>, public Observable{
+class BookRepository : public Repository<Book>, public Observable {
 private:
     BookRepository() = default;
 
@@ -23,7 +23,14 @@ public:
         return instance;
     }
 
-    void add(const std::shared_ptr<Book>& book) override;
+    void add(const std::shared_ptr<Book> &book) override;
+
+    void remove(const std::shared_ptr<Book> &book) override;
+
+    std::shared_ptr<Book> findById(int id) const override;
+
+    std::vector<std::shared_ptr<Book>> getAll() const override;
+
 };
 
 #endif
