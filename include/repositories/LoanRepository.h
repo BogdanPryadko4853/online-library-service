@@ -3,8 +3,9 @@
 
 #include "../enteties/Loan.h"
 #include "Repository.h"
+#include "../observer/Observable.h"
 
-class LoanRepository : public Repository<Loan> {
+class LoanRepository : public Repository<Loan>,public Observable {
 private:
     LoanRepository() = default;
 
@@ -15,13 +16,16 @@ private:
     static std::shared_ptr<LoanRepository> instance;
 
 public:
-    // Метод для доступа к экземпляру
     static std::shared_ptr<LoanRepository> getInstance() {
         if (!instance) {
             instance = std::shared_ptr<LoanRepository>(new LoanRepository());
         }
         return instance;
     }
+
+    std::shared_ptr<Loan> findById(int id) const override;
+
+    std::vector<std::shared_ptr<Loan>> getAll() const override;
 };
 
 #endif

@@ -3,8 +3,9 @@
 
 #include "../enteties/Library.h"
 #include "Repository.h"
+#include "../observer/Observable.h"
 
-class LibraryRepository : public Repository<Library> {
+class LibraryRepository : public Repository<Library> ,public Observable{
 private:
     LibraryRepository() = default;
 
@@ -21,6 +22,11 @@ public:
         }
         return instance;
     }
+
+    std::shared_ptr<Library> findById(int id) const override;
+
+    std::vector<std::shared_ptr<Library>> getAll() const override;
+
 };
 
 #endif
