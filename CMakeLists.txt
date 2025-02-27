@@ -55,6 +55,13 @@ add_executable(courseWork main.cpp
         "include/observer/Observable.h"
         src/observer/Observable.cpp
         include/observer/Observer.h
-        src/logger/Logger.cpp)
+        src/logger/Logger.cpp
+        include/notifications/NotificationSender.h
+        include/notifications/NotificationService.h
+        src/notifications/EmailNotificationService.cpp
+        include/notifications/EmailSender.h
+        include/notifications/SMSSender.h
+        src/notifications/SMSNotificationService.cpp
+        src/notifications/NotificationObserver.cpp)
 
 target_link_libraries(courseWork Ws2_32 Mswsock)

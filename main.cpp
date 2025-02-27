@@ -28,8 +28,18 @@ int main() {
     auto loanRepo = LoanRepository::getInstance();
     auto userRepo = UserRepository::getInstance();
 
+
+//    auto emailService = std::make_shared<EmailNotificationService>();
+//    auto smsService = std::make_shared<SMSNotificationService>();
+//
+//    auto emailObserver = std::make_shared<NotificationObserver>(emailService);
+//    auto smsObserver = std::make_shared<NotificationObserver>(smsService);
+
     bookRepo->addObserver(logger);
     authorRepo->addObserver(logger);
+    libraryRepo->addObserver(logger);
+    loanRepo->addObserver(logger);
+    userRepo->addObserver(logger);
 
 
     auto authorService = std::make_shared<AuthorService>(authorRepo);
