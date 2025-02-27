@@ -3,8 +3,9 @@
 
 #include "../enteties/Book.h"
 #include "Repository.h"
+#include "../observer/Observable.h"
 
-class BookRepository : public Repository<Book> {
+class BookRepository : public Repository<Book>, public Observable{
 private:
     BookRepository() = default;
 
@@ -15,13 +16,14 @@ private:
     static std::shared_ptr<BookRepository> instance;
 
 public:
-    // Метод для доступа к экземпляру
     static std::shared_ptr<BookRepository> getInstance() {
         if (!instance) {
             instance = std::shared_ptr<BookRepository>(new BookRepository());
         }
         return instance;
     }
+
+    void add(const std::shared_ptr<Book>& book) override;
 };
 
 #endif

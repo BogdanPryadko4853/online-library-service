@@ -50,6 +50,11 @@ add_executable(courseWork main.cpp
         include/controllers/LoanController.h
         include/controllers/UserController.h
         include/repositories/Repository.h
-        include/services/Service.h)
+        include/services/Service.h
+        include/logger/Logger.h
+        "include/observer/Observable.h"
+        src/observer/Observable.cpp
+        include/observer/Observer.h
+        src/logger/Logger.cpp)
 
 target_link_libraries(courseWork Ws2_32 Mswsock)

@@ -17,13 +17,18 @@
 #include "include/services/LoanSerivce.h"
 #include "include/services/UserService.h"
 
+#include "include/logger/Logger.h"
+
 int main() {
 
+    auto logger = std::make_shared<Logger>();
     auto authorRepo = AuthorRepository::getInstance();
     auto bookRepo = BookRepository::getInstance();
     auto libraryRepo = LibraryRepository::getInstance();
     auto loanRepo = LoanRepository::getInstance();
     auto userRepo = UserRepository::getInstance();
+
+    bookRepo->addObserver(logger);
 
 
     auto authorService = std::make_shared<AuthorService>(authorRepo);
