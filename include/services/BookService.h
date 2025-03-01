@@ -4,6 +4,7 @@
 #include "Service.h"
 #include "../repositories/BookRepository.h"
 #include "../enteties/Book.h"
+#include "../builder/BookBuilder.h"
 
 class BookService : public Service<Book, BookRepository> {
 public:
@@ -11,7 +12,12 @@ public:
             : Service(repo) {}
 
     void createBook(int id, const std::string& title, const std::string& description, int authorId) {
-        auto book = std::make_shared<Book>(id, title, description, authorId);
+        auto book = BookBuilder()
+                .setId(id)
+                .setTitle(title)
+                .setDescription(description)
+                .setAuthorId(authorId)
+                .build();
         create(book);
     }
 

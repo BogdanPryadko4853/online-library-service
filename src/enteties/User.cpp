@@ -16,6 +16,10 @@ std::string User::getLastName() const {
     return lastName;
 }
 
+void User::setPassword(const std::string &password) {
+    this->password = password;
+}
+
 const std::vector<std::shared_ptr<Loan>>& User::getLoans() const {
     return loans;
 }

@@ -13,3 +13,5 @@ std::vector<std::shared_ptr<User>> UserRepository::getAll() const {
     notifyObservers("Getting all users");
     return users;
 }
+
+

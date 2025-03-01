@@ -4,6 +4,7 @@
 #include "Service.h"
 #include "../repositories/LibraryRepository.h"
 #include "../enteties/Library.h"
+#include "../builder/LibraryBuilder.h"
 
 class LibraryService : public Service<Library, LibraryRepository> {
 public:
@@ -11,7 +12,12 @@ public:
             : Service(repo) {}
 
     void createLibrary(int id, const std::string& name, const std::string& description, const std::string& address) {
-        auto library = std::make_shared<Library>(id, name, description, address);
+        auto library = LibraryBuilder()
+                .setId(1)
+                .setName("Central Library")
+                .setDescription("The main library of the city.")
+                .setAddress("123 Main St.")
+                .build();
         create(library);
     }
 

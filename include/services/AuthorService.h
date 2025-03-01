@@ -4,6 +4,7 @@
 #include "Service.h"
 #include "../repositories/AuthorRepository.h"
 #include "../enteties/Author.h"
+#include "../builder/AuthorBuilder.h"
 
 class AuthorService : public Service<Author, AuthorRepository> {
 public:
@@ -11,7 +12,12 @@ public:
             : Service(repo) {}
 
     void createAuthor(int id, const std::string& firstName, const std::string& lastName, const std::string& bio) {
-        auto author = std::make_shared<Author>(id, firstName, lastName, bio);
+        auto author = AuthorBuilder()
+                .setId(1)
+                .setFirstName("John")
+                .setLastName("Doe")
+                .setBio("A famous author.")
+                .build();
         create(author);
     }
 

@@ -18,8 +18,20 @@
 #include "include/services/UserService.h"
 
 #include "include/logger/Logger.h"
+#include "include/notifications/EmailSender.h"
 
 int main() {
+
+//
+//    // Настройки SMTP-сервера
+//    std::string smtpServer = "smtp://smtp.gmail.com:587";
+//    std::string smtpUser = "your-email@gmail.com";
+//    std::string smtpPassword = "your-password";
+//
+//    // Создаем EmailSender
+//    EmailSender emailSender(smtpServer, smtpUser, smtpPassword);
+
+
 
     auto logger = std::make_shared<Logger>();
     auto authorRepo = AuthorRepository::getInstance();

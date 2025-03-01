@@ -1,12 +1,14 @@
 cmake_minimum_required(VERSION 3.30)
 project(courseWork)
 
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 20 CMAKE_TOOLCHAIN_FILE "C:/Users/bogda/.vcpkg-clion/vcpkg/scripts/buildsystems/vcpkg.cmake" CACHE STRING "")
 
 include_directories(
         C:/asio/asio-1.30.2/include
         C:/crow/include
 )
+
+link_directories("C:/curl/curl-8.12.1/lib")
 
 add_executable(courseWork main.cpp
         include/enteties/Book.h
@@ -62,6 +64,15 @@ add_executable(courseWork main.cpp
         include/notifications/EmailSender.h
         include/notifications/SMSSender.h
         src/notifications/SMSNotificationService.cpp
-        src/notifications/NotificationObserver.cpp)
+        src/notifications/NotificationObserver.cpp
+        src/notifications/EmailSender.cpp
+        include/builder/BookBuilder.h
+        include/builder/AuthorBuilder.h
+        include/builder/LibraryBuilder.h
+        include/builder/LoanBuilder.h
+        include/builder/UserBuilder.h)
 
 target_link_libraries(courseWork Ws2_32 Mswsock)
+
+
+
