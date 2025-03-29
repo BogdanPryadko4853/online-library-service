@@ -5,28 +5,29 @@
 #include "../repositories/BookRepository.h"
 #include "../enteties/Book.h"
 #include "../builder/BookBuilder.h"
+#include <stdexcept>
 
 class BookService : public Service<Book, BookRepository> {
 public:
-    explicit BookService(const std::shared_ptr<BookRepository>& repo)
+    explicit BookService(const std::shared_ptr<BookRepository> &repo)
             : Service(repo) {}
 
-    void createBook(int id, const std::string& title, const std::string& description, int authorId) {
-        auto book = BookBuilder()
-                .setId(id)
-                .setTitle(title)
-                .setDescription(description)
-                .setAuthorId(authorId)
-                .build();
-        create(book);
-    }
+    /**
+     * Creates a new book with the given parameters
+     * @throws std::invalid_argument if validation fails
+     */
+    void createBook(int id, const std::string &title, const std::string &description, int authorId);
 
-    void updateBook(int id, const std::string& title, const std::string& description) {
-        update(id, [&](std::shared_ptr<Book> book) {
-            book->setTitle(title);
-            book->setDescription(description);
-        });
-    }
+    /**
+     * Updates book information
+     * @throws std::invalid_argument if validation fails
+     */
+    void updateBook(int id, const std::string &title, const std::string &description);
+
+    /**
+     * Checks if book exists
+     */
+    bool bookExists(int id) const;
 };
 
 #endif
