@@ -28,6 +28,15 @@ public:
      * Checks if book exists
      */
     bool bookExists(int id) const;
+
+
+    std::vector<std::shared_ptr<Book>> findByTitle(const std::string &title) const;
+
+    std::vector<std::shared_ptr<Book>> findByAuthor(int authorId) const;
+
+    size_t countBooks() const;
+
+    size_t countBooksByAuthor(int authorId) const;
 };
 
 #endif
