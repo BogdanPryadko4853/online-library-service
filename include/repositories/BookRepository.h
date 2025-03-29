@@ -24,25 +24,18 @@ public:
 
     void remove(const std::shared_ptr<Book> &book) override;
 
-    std::shared_ptr<Book> findById(int id) const override;
+    [[nodiscard]] std::shared_ptr<Book> findById(int id) const override;
 
-    std::vector<std::shared_ptr<Book>> getAll() const override;
+    [[nodiscard]] std::vector<std::shared_ptr<Book>> getAll() const override;
 
-    std::vector<std::shared_ptr<Book>> findByTitle(const std::string &title) const;
+    [[nodiscard]] std::vector<std::shared_ptr<Book>> findByTitle(const std::string &title) const;
 
-    std::vector<std::shared_ptr<Book>> findByAuthor(int authorId) const;
+    [[nodiscard]] std::vector<std::shared_ptr<Book>> findByAuthor(int authorId) const;
 
-    std::vector<std::shared_ptr<Book>> findByLibrary(int libraryId) const;
 
-    size_t countBooks() const;
+    [[nodiscard]] bool exists(int id) const;
 
-    size_t countBooksByAuthor(int authorId) const;
-
-    size_t countBooksInLibrary(int libraryId) const;
-
-    bool exists(int id) const;
-
-    bool titleExists(const std::string &title) const;
+    [[nodiscard]] bool titleExists(const std::string &title) const;
 
 };
 
