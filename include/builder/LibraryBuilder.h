@@ -11,29 +11,15 @@ private:
     std::string address;
 
 public:
-    LibraryBuilder& setId(int id) {
-        this->id = id;
-        return *this;
-    }
+    LibraryBuilder &setId(int id);
 
-    LibraryBuilder& setName(const std::string& name) {
-        this->name = name;
-        return *this;
-    }
+    LibraryBuilder &setName(const std::string &name);
 
-    LibraryBuilder& setDescription(const std::string& description) {
-        this->description = description;
-        return *this;
-    }
+    LibraryBuilder &setDescription(const std::string &description);
 
-    LibraryBuilder& setAddress(const std::string& address) {
-        this->address = address;
-        return *this;
-    }
+    LibraryBuilder &setAddress(const std::string &address);
 
-    std::shared_ptr<Library> build() {
-        return std::make_shared<Library>(id, name, description, address);
-    }
+    std::shared_ptr<Library> build();
 };
 
 #endif
