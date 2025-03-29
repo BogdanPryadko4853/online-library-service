@@ -47,3 +47,13 @@
 3187	16138	7649842331962703	CMakeFiles/courseWork.dir/src/controllers/LoanController.cpp.obj	7e6bcdf9e1891d39
 50	23320	7649842300593414	CMakeFiles/courseWork.dir/main.cpp.obj	4e1294982883c425
 23321	49368	7649842533305584	courseWork.exe	2f9682c0bfb3b09d
+36	1378	7649847951707089	CMakeFiles/courseWork.dir/src/services/AuthorService.cpp.obj	bdac908ca4e27b07
+40	1398	7649847951759279	CMakeFiles/courseWork.dir/src/services/BookService.cpp.obj	c2e64dfcb1ecd016
+1379	15663	7649847965142783	CMakeFiles/courseWork.dir/src/controllers/AuthController.cpp.obj	b92ea4c381d6c959
+1398	15831	7649847965330684	CMakeFiles/courseWork.dir/src/controllers/BookController.cpp.obj	3cfb8c9a1212378b
+15831	17406	7649848109670284	CMakeFiles/courseWork.dir/src/services/UserService.cpp.obj	4bff10fbcaa9991b
+15663	18364	7649848107988216	CMakeFiles/courseWork.dir/src/services/LoanService.cpp.obj	5eecfcff4b516ed
+30	24946	7649847951657111	CMakeFiles/courseWork.dir/main.cpp.obj	4e1294982883c425
+17406	28906	7649848125419390	CMakeFiles/courseWork.dir/src/controllers/LoanController.cpp.obj	7e6bcdf9e1891d39
+18364	29451	7649848134997236	CMakeFiles/courseWork.dir/src/controllers/UserController.cpp.obj	dfd485fb569a7f69
+29451	48583	7649848245864968	courseWork.exe	2f9682c0bfb3b09d

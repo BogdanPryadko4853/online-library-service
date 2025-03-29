@@ -11,26 +11,33 @@
 
 class LoanService : public Service<Loan, LoanRepository> {
 public:
-    explicit LoanService(const std::shared_ptr<LoanRepository>& repo);
+    explicit LoanService(const std::shared_ptr<LoanRepository> &repo);
 
     void createLoan(int id, std::shared_ptr<Book> book, std::shared_ptr<User> user,
-                    const std::chrono::system_clock::time_point& loanDate,
-                    const std::chrono::system_clock::time_point& returnDate);
+                    const std::chrono::system_clock::time_point &loanDate,
+                    const std::chrono::system_clock::time_point &returnDate);
 
     void returnLoan(int loanId);
+
     void renewLoan(int loanId);
 
-    bool isBookAvailable(int bookId) const;
-    bool canUserBorrow(int userId) const;
-    bool isLoanOverdue(int loanId) const;
+    [[nodiscard]] bool isBookAvailable(int bookId) const;
 
-    std::vector<std::shared_ptr<Loan>> getActiveLoans() const;
-    std::vector<std::shared_ptr<Loan>> getUserLoans(int userId) const;
-    std::vector<std::shared_ptr<Loan>> getOverdueLoans() const;
+    [[nodiscard]] bool canUserBorrow(int userId) const;
 
-    size_t countActiveLoans() const;
-    size_t countUserLoans(int userId) const;
-    size_t countOverdueLoans() const;
+    [[nodiscard]] bool isLoanOverdue(int loanId) const;
+
+    [[nodiscard]] std::vector<std::shared_ptr<Loan>> getActiveLoans() const;
+
+    [[nodiscard]] std::vector<std::shared_ptr<Loan>> getUserLoans(int userId) const;
+
+    [[nodiscard]] std::vector<std::shared_ptr<Loan>> getOverdueLoans() const;
+
+    [[nodiscard]] size_t countActiveLoans() const;
+
+    [[nodiscard]] size_t countUserLoans(int userId) const;
+
+    [[nodiscard]] size_t countOverdueLoans() const;
 
 private:
     static constexpr int MAX_LOANS_PER_USER = 5;

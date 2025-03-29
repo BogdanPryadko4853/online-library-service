@@ -9,15 +9,16 @@
 
 class AuthorService : public Service<Author, AuthorRepository> {
 public:
-    explicit AuthorService(const std::shared_ptr<AuthorRepository>& repo)
+    explicit AuthorService(const std::shared_ptr<AuthorRepository> &repo)
             : Service(repo) {}
 
-    void createAuthor(int id, const std::string& firstName, const std::string& lastName, const std::string& bio);
-    void updateAuthor(int id, const std::string& firstName, const std::string& lastName, const std::string& bio);
+    void createAuthor(int id, const std::string &firstName, const std::string &lastName, const std::string &bio);
 
-    // Новые методы
-    std::vector<std::shared_ptr<Author>> findAuthorsByName(const std::string& name) const;
-    bool authorExists(int id) const;
+    void updateAuthor(int id, const std::string &firstName, const std::string &lastName, const std::string &bio);
+
+    [[nodiscard]] std::vector<std::shared_ptr<Author>> findAuthorsByName(const std::string &name) const;
+
+    [[nodiscard]] bool authorExists(int id) const;
 };
 
 #endif
