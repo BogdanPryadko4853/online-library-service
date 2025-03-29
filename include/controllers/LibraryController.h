@@ -10,8 +10,9 @@ private:
     std::shared_ptr<LibraryService> libraryService;
 
 public:
-    explicit LibraryController(const std::shared_ptr<LibraryService>& service);
-    void setupRoutes(crow::SimpleApp& app);
+    explicit LibraryController(const std::shared_ptr<LibraryService> &service);
+
+    void setupRoutes(crow::SimpleApp &app);
 };
 
 #endif

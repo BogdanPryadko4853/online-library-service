@@ -21,6 +21,8 @@ public:
     LoanBuilder &setLoanDate(const std::chrono::system_clock::time_point &loanDate);
 
     LoanBuilder &setReturnDate(const std::chrono::system_clock::time_point &returnDate);
+
+    std::shared_ptr<Loan> build();
 };
 
 #endif
