@@ -11,6 +11,8 @@ include_directories(
 link_directories("C:/curl/curl-8.12.1/lib")
 
 add_executable(courseWork main.cpp
+        src/builder/AuthorBuilder.cpp
+        src/builder/BookBuilder.cpp
         include/enteties/Book.h
         src/enteties/Book.cpp
         include/enteties/Loan.h
