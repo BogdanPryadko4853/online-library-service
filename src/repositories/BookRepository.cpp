@@ -1,25 +1,87 @@
 #include "../../include/repositories/BookRepository.h"
+#include <algorithm>
 
 std::shared_ptr<BookRepository> BookRepository::instance = nullptr;
 
+std::shared_ptr<BookRepository> BookRepository::getInstance() {
+    if (!instance) {
+        instance = std::shared_ptr<BookRepository>(new BookRepository());
+    }
+    return instance;
+}
+
 void BookRepository::add(const std::shared_ptr<Book> &book) {
+    if (!book) {
+        throw std::invalid_argument("Cannot add null book");
+    }
+    if (exists(book->getId())) {
+        throw std::runtime_error("Book with this ID already exists");
+    }
+    if (titleExists(book->getTitle())) {
+        throw std::runtime_error("Book with this title already exists");
+    }
+
     Repository<Book>::add(book);
-    notifyObservers("Book added: " + book->getTitle());
+    notifyObservers("Added book: ID=" + std::to_string(book->getId()) +
+                    ", Title=" + book->getTitle());
 }
 
 void BookRepository::remove(const std::shared_ptr<Book> &book) {
+    if (!book || !exists(book->getId())) {
+        throw std::runtime_error("Book not found");
+    }
+
     Repository<Book>::remove(book);
-    notifyObservers("Book removed: " + book->getTitle());
+    notifyObservers("Removed book: ID=" + std::to_string(book->getId()));
 }
 
 std::shared_ptr<Book> BookRepository::findById(int id) const {
     auto book = Repository<Book>::findById(id);
-    notifyObservers(&"Founded book with id "[id]);
+    notifyObservers("Found book with id " + std::to_string(id));
     return book;
 }
 
 std::vector<std::shared_ptr<Book>> BookRepository::getAll() const {
     auto books = Repository<Book>::getAll();
-    notifyObservers("Was gotten all books");
+    notifyObservers("Retrieved all books (count: " + std::to_string(books.size()) + ")");
     return books;
+}
+
+std::vector<std::shared_ptr<Book>> BookRepository::findByTitle(const std::string &title) const {
+    std::vector<std::shared_ptr<Book>> result;
+    auto all = getAll();
+
+    std::copy_if(all.begin(), all.end(), std::back_inserter(result),
+                 [&title](const auto &book) {
+                     return book->getTitle().find(title) != std::string::npos;
+                 });
+
+    notifyObservers("Search by title: '" + title + "' found " + std::to_string(result.size()) + " books");
+    return result;
+}
+
+std::vector<std::shared_ptr<Book>> BookRepository::findByAuthor(int authorId) const {
+    std::vector<std::shared_ptr<Book>> result;
+    auto all = getAll();
+
+    std::copy_if(all.begin(), all.end(), std::back_inserter(result),
+                 [authorId](const auto &book) {
+                     return book->getAuthorId() == authorId;
+                 });
+
+    notifyObservers("Search by author ID: " + std::to_string(authorId) +
+                    " found " + std::to_string(result.size()) + " books");
+    return result;
+}
+
+bool BookRepository::exists(int id) const {
+    return findById(id) != nullptr;
+}
+
+bool BookRepository::titleExists(const std::string &title) const {
+    auto all = getAll();
+    return std::any_of(all.begin(), all.end(),
+                       [&title](const auto &book) {
+                           return book->getTitle() == title;
+                       });
 }
