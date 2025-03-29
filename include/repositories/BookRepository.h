@@ -27,9 +27,9 @@ public:
 
     void remove(const std::shared_ptr<Book> &book) override;
 
-    std::shared_ptr<Book> findById(int id) const override;
+    [[nodiscard]] std::shared_ptr<Book> findById(int id) const override;
 
-    std::vector<std::shared_ptr<Book>> getAll() const override;
+    [[nodiscard]] std::vector<std::shared_ptr<Book>> getAll() const override;
 
 };
 

@@ -23,9 +23,9 @@ public:
         return instance;
     }
 
-    std::shared_ptr<Library> findById(int id) const override;
+    [[nodiscard]] std::shared_ptr<Library> findById(int id) const override;
 
-    std::vector<std::shared_ptr<Library>> getAll() const override;
+    [[nodiscard]] std::vector<std::shared_ptr<Library>> getAll() const override;
 
 };
 

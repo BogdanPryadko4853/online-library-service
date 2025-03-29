@@ -23,9 +23,9 @@ public:
         return instance;
     }
 
-    std::shared_ptr<Loan> findById(int id) const override;
+    [[nodiscard]] std::shared_ptr<Loan> findById(int id) const override;
 
-    std::vector<std::shared_ptr<Loan>> getAll() const override;
+    [[nodiscard]] std::vector<std::shared_ptr<Loan>> getAll() const override;
 };
 
 #endif
