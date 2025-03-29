@@ -37,3 +37,7 @@
 34	19321	7625632923944832	CMakeFiles/courseWork.dir/main.cpp.obj	4e1294982883c425
 12577	20459	7625633049384871	CMakeFiles/courseWork.dir/src/controllers/UserController.cpp.obj	dfd485fb569a7f69
 20459	41478	7625633128190962	courseWork.exe	fdf4f4e2f24c725d
+84	2083	7649429730221574	CMakeFiles/courseWork.dir/src/services/LibraryService.cpp.obj	5cf2ea1681f62b7b
+92	20386	7649429730324046	CMakeFiles/courseWork.dir/src/controllers/LibraryController.cpp.obj	33090d95cc5a1c43
+76	31192	7649429730145405	CMakeFiles/courseWork.dir/main.cpp.obj	4e1294982883c425
+31192	61690	7649430041308267	courseWork.exe	fdf4f4e2f24c725d

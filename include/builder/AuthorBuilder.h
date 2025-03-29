@@ -12,29 +12,15 @@ private:
     std::string bio;
 
 public:
-    AuthorBuilder& setId(int id) {
-        this->id = id;
-        return *this;
-    }
+    AuthorBuilder &setId(int id);
 
-    AuthorBuilder& setFirstName(const std::string& firstName) {
-        this->firstName = firstName;
-        return *this;
-    }
+    AuthorBuilder &setFirstName(const std::string &firstName);
 
-    AuthorBuilder& setLastName(const std::string& lastName) {
-        this->lastName = lastName;
-        return *this;
-    }
+    AuthorBuilder &setLastName(const std::string &lastName);
 
-    AuthorBuilder& setBio(const std::string& bio) {
-        this->bio = bio;
-        return *this;
-    }
+    AuthorBuilder &setBio(const std::string &bio);
 
-    std::shared_ptr<Author> build() {
-        return std::make_shared<Author>(id, firstName, lastName, bio);
-    }
+    std::shared_ptr<Author> build();
 };
 
 #endif
