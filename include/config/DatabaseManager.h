@@ -17,7 +17,6 @@ public:
     bool executeWithParams(const std::string& sql, const std::vector<std::string>& params);
     std::vector<std::vector<std::string>> query(const std::string& sql);
 
-    // Удаляем копирование и присваивание
     DatabaseManager(const DatabaseManager&) = delete;
     DatabaseManager& operator=(const DatabaseManager&) = delete;
 

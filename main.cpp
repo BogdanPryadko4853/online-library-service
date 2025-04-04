@@ -4,34 +4,19 @@
 #include "include/controllers/LibraryController.h"
 #include "include/controllers/LoanController.h"
 #include "include/controllers/UserController.h"
-
 #include "include/repositories/AuthorRepository.h"
 #include "include/repositories/BookRepository.h"
 #include "include/repositories/LibraryRepository.h"
 #include "include/repositories/LoanRepository.h"
 #include "include/repositories/UserRepository.h"
-
 #include "include/services/AuthorService.h"
 #include "include/services/BookService.h"
 #include "include/services/LibraryService.h"
 #include "include/services/LoanSerivce.h"
 #include "include/services/UserService.h"
-
 #include "include/logger/Logger.h"
-#include "include/notifications/EmailSender.h"
 
 int main() {
-
-//
-//    // Настройки SMTP-сервера
-//    std::string smtpServer = "smtp://smtp.gmail.com:587";
-//    std::string smtpUser = "your-email@gmail.com";
-//    std::string smtpPassword = "your-password";
-//
-//    // Создаем EmailSender
-//    EmailSender emailSender(smtpServer, smtpUser, smtpPassword);
-
-
 
     auto logger = std::make_shared<Logger>();
     auto authorRepo = AuthorRepository::getInstance();
@@ -39,13 +24,6 @@ int main() {
     auto libraryRepo = LibraryRepository::getInstance();
     auto loanRepo = LoanRepository::getInstance();
     auto userRepo = UserRepository::getInstance();
-
-
-//    auto emailService = std::make_shared<EmailNotificationService>();
-//    auto smsService = std::make_shared<SMSNotificationService>();
-//
-//    auto emailObserver = std::make_shared<NotificationObserver>(emailService);
-//    auto smsObserver = std::make_shared<NotificationObserver>(smsService);
 
     bookRepo->addObserver(logger);
     authorRepo->addObserver(logger);
