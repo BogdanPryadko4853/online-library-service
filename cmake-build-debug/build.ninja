@@ -41,235 +41,267 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = C$:/Univer/courseWork/cmake-build-debug/
 # =============================================================================
+# Object build statements for STATIC_LIBRARY target sqlite
+
+
+#############################################
+# Order-only phony target for sqlite
+
+build cmake_object_order_depends_target_sqlite: phony || .
+
+build CMakeFiles/sqlite.dir/sqlite/sqlite3.c.obj: C_COMPILER__sqlite_unscanned_Debug C$:/Univer/courseWork/sqlite/sqlite3.c || cmake_object_order_depends_target_sqlite
+  DEP_FILE = CMakeFiles\sqlite.dir\sqlite\sqlite3.c.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  INCLUDES = -IC:/Univer/courseWork/sqlite -IC:/Univer/courseWork/include -IC:/asio/asio-1.30.2/include -IC:/crow/include
+  OBJECT_DIR = CMakeFiles\sqlite.dir
+  OBJECT_FILE_DIR = CMakeFiles\sqlite.dir\sqlite
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target sqlite
+
+
+#############################################
+# Link the static library libsqlite.a
+
+build libsqlite.a: C_STATIC_LIBRARY_LINKER__sqlite_Debug CMakeFiles/sqlite.dir/sqlite/sqlite3.c.obj
+  LANGUAGE_COMPILE_FLAGS = -g
+  OBJECT_DIR = CMakeFiles\sqlite.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = libsqlite.a
+  TARGET_PDB = sqlite.a.dbg
+
+# =============================================================================
 # Object build statements for EXECUTABLE target courseWork
 
 
 #############################################
 # Order-only phony target for courseWork
 
-build cmake_object_order_depends_target_courseWork: phony || .
+build cmake_object_order_depends_target_courseWork: phony || cmake_object_order_depends_target_sqlite
 
 build CMakeFiles/courseWork.dir/main.cpp.obj: CXX_COMPILER__courseWork_unscanned_Debug C$:/Univer/courseWork/main.cpp || cmake_object_order_depends_target_courseWork
   DEP_FILE = CMakeFiles\courseWork.dir\main.cpp.obj.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  INCLUDES = -IC:/asio/asio-1.30.2/include -IC:/crow/include
+  INCLUDES = -IC:/Univer/courseWork/sqlite -IC:/Univer/courseWork/include -IC:/asio/asio-1.30.2/include -IC:/crow/include
   OBJECT_DIR = CMakeFiles\courseWork.dir
   OBJECT_FILE_DIR = CMakeFiles\courseWork.dir
 
 build CMakeFiles/courseWork.dir/src/builder/LibraryBuilder.cpp.obj: CXX_COMPILER__courseWork_unscanned_Debug C$:/Univer/courseWork/src/builder/LibraryBuilder.cpp || cmake_object_order_depends_target_courseWork
   DEP_FILE = CMakeFiles\courseWork.dir\src\builder\LibraryBuilder.cpp.obj.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  INCLUDES = -IC:/asio/asio-1.30.2/include -IC:/crow/include
+  INCLUDES = -IC:/Univer/courseWork/sqlite -IC:/Univer/courseWork/include -IC:/asio/asio-1.30.2/include -IC:/crow/include
   OBJECT_DIR = CMakeFiles\courseWork.dir
   OBJECT_FILE_DIR = CMakeFiles\courseWork.dir\src\builder
 
 build CMakeFiles/courseWork.dir/src/builder/LoanBuilder.cpp.obj: CXX_COMPILER__courseWork_unscanned_Debug C$:/Univer/courseWork/src/builder/LoanBuilder.cpp || cmake_object_order_depends_target_courseWork
   DEP_FILE = CMakeFiles\courseWork.dir\src\builder\LoanBuilder.cpp.obj.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  INCLUDES = -IC:/asio/asio-1.30.2/include -IC:/crow/include
+  INCLUDES = -IC:/Univer/courseWork/sqlite -IC:/Univer/courseWork/include -IC:/asio/asio-1.30.2/include -IC:/crow/include
   OBJECT_DIR = CMakeFiles\courseWork.dir
   OBJECT_FILE_DIR = CMakeFiles\courseWork.dir\src\builder
 
 build CMakeFiles/courseWork.dir/src/builder/UserBuilder.cpp.obj: CXX_COMPILER__courseWork_unscanned_Debug C$:/Univer/courseWork/src/builder/UserBuilder.cpp || cmake_object_order_depends_target_courseWork
   DEP_FILE = CMakeFiles\courseWork.dir\src\builder\UserBuilder.cpp.obj.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  INCLUDES = -IC:/asio/asio-1.30.2/include -IC:/crow/include
+  INCLUDES = -IC:/Univer/courseWork/sqlite -IC:/Univer/courseWork/include -IC:/asio/asio-1.30.2/include -IC:/crow/include
   OBJECT_DIR = CMakeFiles\courseWork.dir
   OBJECT_FILE_DIR = CMakeFiles\courseWork.dir\src\builder
 
 build CMakeFiles/courseWork.dir/src/builder/AuthorBuilder.cpp.obj: CXX_COMPILER__courseWork_unscanned_Debug C$:/Univer/courseWork/src/builder/AuthorBuilder.cpp || cmake_object_order_depends_target_courseWork
   DEP_FILE = CMakeFiles\courseWork.dir\src\builder\AuthorBuilder.cpp.obj.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  INCLUDES = -IC:/asio/asio-1.30.2/include -IC:/crow/include
+  INCLUDES = -IC:/Univer/courseWork/sqlite -IC:/Univer/courseWork/include -IC:/asio/asio-1.30.2/include -IC:/crow/include
   OBJECT_DIR = CMakeFiles\courseWork.dir
   OBJECT_FILE_DIR = CMakeFiles\courseWork.dir\src\builder
 
 build CMakeFiles/courseWork.dir/src/builder/BookBuilder.cpp.obj: CXX_COMPILER__courseWork_unscanned_Debug C$:/Univer/courseWork/src/builder/BookBuilder.cpp || cmake_object_order_depends_target_courseWork
   DEP_FILE = CMakeFiles\courseWork.dir\src\builder\BookBuilder.cpp.obj.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  INCLUDES = -IC:/asio/asio-1.30.2/include -IC:/crow/include
+  INCLUDES = -IC:/Univer/courseWork/sqlite -IC:/Univer/courseWork/include -IC:/asio/asio-1.30.2/include -IC:/crow/include
   OBJECT_DIR = CMakeFiles\courseWork.dir
   OBJECT_FILE_DIR = CMakeFiles\courseWork.dir\src\builder
 
 build CMakeFiles/courseWork.dir/src/enteties/Book.cpp.obj: CXX_COMPILER__courseWork_unscanned_Debug C$:/Univer/courseWork/src/enteties/Book.cpp || cmake_object_order_depends_target_courseWork
   DEP_FILE = CMakeFiles\courseWork.dir\src\enteties\Book.cpp.obj.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  INCLUDES = -IC:/asio/asio-1.30.2/include -IC:/crow/include
+  INCLUDES = -IC:/Univer/courseWork/sqlite -IC:/Univer/courseWork/include -IC:/asio/asio-1.30.2/include -IC:/crow/include
   OBJECT_DIR = CMakeFiles\courseWork.dir
   OBJECT_FILE_DIR = CMakeFiles\courseWork.dir\src\enteties
 
 build CMakeFiles/courseWork.dir/src/enteties/Library.cpp.obj: CXX_COMPILER__courseWork_unscanned_Debug C$:/Univer/courseWork/src/enteties/Library.cpp || cmake_object_order_depends_target_courseWork
   DEP_FILE = CMakeFiles\courseWork.dir\src\enteties\Library.cpp.obj.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  INCLUDES = -IC:/asio/asio-1.30.2/include -IC:/crow/include
+  INCLUDES = -IC:/Univer/courseWork/sqlite -IC:/Univer/courseWork/include -IC:/asio/asio-1.30.2/include -IC:/crow/include
   OBJECT_DIR = CMakeFiles\courseWork.dir
   OBJECT_FILE_DIR = CMakeFiles\courseWork.dir\src\enteties
 
 build CMakeFiles/courseWork.dir/src/enteties/Loan.cpp.obj: CXX_COMPILER__courseWork_unscanned_Debug C$:/Univer/courseWork/src/enteties/Loan.cpp || cmake_object_order_depends_target_courseWork
   DEP_FILE = CMakeFiles\courseWork.dir\src\enteties\Loan.cpp.obj.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  INCLUDES = -IC:/asio/asio-1.30.2/include -IC:/crow/include
+  INCLUDES = -IC:/Univer/courseWork/sqlite -IC:/Univer/courseWork/include -IC:/asio/asio-1.30.2/include -IC:/crow/include
   OBJECT_DIR = CMakeFiles\courseWork.dir
   OBJECT_FILE_DIR = CMakeFiles\courseWork.dir\src\enteties
 
 build CMakeFiles/courseWork.dir/src/enteties/User.cpp.obj: CXX_COMPILER__courseWork_unscanned_Debug C$:/Univer/courseWork/src/enteties/User.cpp || cmake_object_order_depends_target_courseWork
   DEP_FILE = CMakeFiles\courseWork.dir\src\enteties\User.cpp.obj.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  INCLUDES = -IC:/asio/asio-1.30.2/include -IC:/crow/include
+  INCLUDES = -IC:/Univer/courseWork/sqlite -IC:/Univer/courseWork/include -IC:/asio/asio-1.30.2/include -IC:/crow/include
   OBJECT_DIR = CMakeFiles\courseWork.dir
   OBJECT_FILE_DIR = CMakeFiles\courseWork.dir\src\enteties
 
 build CMakeFiles/courseWork.dir/src/enteties/Author.cpp.obj: CXX_COMPILER__courseWork_unscanned_Debug C$:/Univer/courseWork/src/enteties/Author.cpp || cmake_object_order_depends_target_courseWork
   DEP_FILE = CMakeFiles\courseWork.dir\src\enteties\Author.cpp.obj.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  INCLUDES = -IC:/asio/asio-1.30.2/include -IC:/crow/include
+  INCLUDES = -IC:/Univer/courseWork/sqlite -IC:/Univer/courseWork/include -IC:/asio/asio-1.30.2/include -IC:/crow/include
   OBJECT_DIR = CMakeFiles\courseWork.dir
   OBJECT_FILE_DIR = CMakeFiles\courseWork.dir\src\enteties
 
 build CMakeFiles/courseWork.dir/src/repositories/UserRepository.cpp.obj: CXX_COMPILER__courseWork_unscanned_Debug C$:/Univer/courseWork/src/repositories/UserRepository.cpp || cmake_object_order_depends_target_courseWork
   DEP_FILE = CMakeFiles\courseWork.dir\src\repositories\UserRepository.cpp.obj.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  INCLUDES = -IC:/asio/asio-1.30.2/include -IC:/crow/include
+  INCLUDES = -IC:/Univer/courseWork/sqlite -IC:/Univer/courseWork/include -IC:/asio/asio-1.30.2/include -IC:/crow/include
   OBJECT_DIR = CMakeFiles\courseWork.dir
   OBJECT_FILE_DIR = CMakeFiles\courseWork.dir\src\repositories
 
 build CMakeFiles/courseWork.dir/src/repositories/BookRepository.cpp.obj: CXX_COMPILER__courseWork_unscanned_Debug C$:/Univer/courseWork/src/repositories/BookRepository.cpp || cmake_object_order_depends_target_courseWork
   DEP_FILE = CMakeFiles\courseWork.dir\src\repositories\BookRepository.cpp.obj.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  INCLUDES = -IC:/asio/asio-1.30.2/include -IC:/crow/include
+  INCLUDES = -IC:/Univer/courseWork/sqlite -IC:/Univer/courseWork/include -IC:/asio/asio-1.30.2/include -IC:/crow/include
   OBJECT_DIR = CMakeFiles\courseWork.dir
   OBJECT_FILE_DIR = CMakeFiles\courseWork.dir\src\repositories
 
 build CMakeFiles/courseWork.dir/src/repositories/LoanRepository.cpp.obj: CXX_COMPILER__courseWork_unscanned_Debug C$:/Univer/courseWork/src/repositories/LoanRepository.cpp || cmake_object_order_depends_target_courseWork
   DEP_FILE = CMakeFiles\courseWork.dir\src\repositories\LoanRepository.cpp.obj.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  INCLUDES = -IC:/asio/asio-1.30.2/include -IC:/crow/include
+  INCLUDES = -IC:/Univer/courseWork/sqlite -IC:/Univer/courseWork/include -IC:/asio/asio-1.30.2/include -IC:/crow/include
   OBJECT_DIR = CMakeFiles\courseWork.dir
   OBJECT_FILE_DIR = CMakeFiles\courseWork.dir\src\repositories
 
 build CMakeFiles/courseWork.dir/src/repositories/LibraryRepository.cpp.obj: CXX_COMPILER__courseWork_unscanned_Debug C$:/Univer/courseWork/src/repositories/LibraryRepository.cpp || cmake_object_order_depends_target_courseWork
   DEP_FILE = CMakeFiles\courseWork.dir\src\repositories\LibraryRepository.cpp.obj.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  INCLUDES = -IC:/asio/asio-1.30.2/include -IC:/crow/include
+  INCLUDES = -IC:/Univer/courseWork/sqlite -IC:/Univer/courseWork/include -IC:/asio/asio-1.30.2/include -IC:/crow/include
   OBJECT_DIR = CMakeFiles\courseWork.dir
   OBJECT_FILE_DIR = CMakeFiles\courseWork.dir\src\repositories
 
 build CMakeFiles/courseWork.dir/src/repositories/AuthorRepository.cpp.obj: CXX_COMPILER__courseWork_unscanned_Debug C$:/Univer/courseWork/src/repositories/AuthorRepository.cpp || cmake_object_order_depends_target_courseWork
   DEP_FILE = CMakeFiles\courseWork.dir\src\repositories\AuthorRepository.cpp.obj.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  INCLUDES = -IC:/asio/asio-1.30.2/include -IC:/crow/include
+  INCLUDES = -IC:/Univer/courseWork/sqlite -IC:/Univer/courseWork/include -IC:/asio/asio-1.30.2/include -IC:/crow/include
   OBJECT_DIR = CMakeFiles\courseWork.dir
   OBJECT_FILE_DIR = CMakeFiles\courseWork.dir\src\repositories
 
 build CMakeFiles/courseWork.dir/src/services/AuthorService.cpp.obj: CXX_COMPILER__courseWork_unscanned_Debug C$:/Univer/courseWork/src/services/AuthorService.cpp || cmake_object_order_depends_target_courseWork
   DEP_FILE = CMakeFiles\courseWork.dir\src\services\AuthorService.cpp.obj.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  INCLUDES = -IC:/asio/asio-1.30.2/include -IC:/crow/include
+  INCLUDES = -IC:/Univer/courseWork/sqlite -IC:/Univer/courseWork/include -IC:/asio/asio-1.30.2/include -IC:/crow/include
   OBJECT_DIR = CMakeFiles\courseWork.dir
   OBJECT_FILE_DIR = CMakeFiles\courseWork.dir\src\services
 
 build CMakeFiles/courseWork.dir/src/services/BookService.cpp.obj: CXX_COMPILER__courseWork_unscanned_Debug C$:/Univer/courseWork/src/services/BookService.cpp || cmake_object_order_depends_target_courseWork
   DEP_FILE = CMakeFiles\courseWork.dir\src\services\BookService.cpp.obj.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  INCLUDES = -IC:/asio/asio-1.30.2/include -IC:/crow/include
+  INCLUDES = -IC:/Univer/courseWork/sqlite -IC:/Univer/courseWork/include -IC:/asio/asio-1.30.2/include -IC:/crow/include
   OBJECT_DIR = CMakeFiles\courseWork.dir
   OBJECT_FILE_DIR = CMakeFiles\courseWork.dir\src\services
 
 build CMakeFiles/courseWork.dir/src/services/LibraryService.cpp.obj: CXX_COMPILER__courseWork_unscanned_Debug C$:/Univer/courseWork/src/services/LibraryService.cpp || cmake_object_order_depends_target_courseWork
   DEP_FILE = CMakeFiles\courseWork.dir\src\services\LibraryService.cpp.obj.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  INCLUDES = -IC:/asio/asio-1.30.2/include -IC:/crow/include
+  INCLUDES = -IC:/Univer/courseWork/sqlite -IC:/Univer/courseWork/include -IC:/asio/asio-1.30.2/include -IC:/crow/include
   OBJECT_DIR = CMakeFiles\courseWork.dir
   OBJECT_FILE_DIR = CMakeFiles\courseWork.dir\src\services
 
 build CMakeFiles/courseWork.dir/src/controllers/AuthController.cpp.obj: CXX_COMPILER__courseWork_unscanned_Debug C$:/Univer/courseWork/src/controllers/AuthController.cpp || cmake_object_order_depends_target_courseWork
   DEP_FILE = CMakeFiles\courseWork.dir\src\controllers\AuthController.cpp.obj.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  INCLUDES = -IC:/asio/asio-1.30.2/include -IC:/crow/include
+  INCLUDES = -IC:/Univer/courseWork/sqlite -IC:/Univer/courseWork/include -IC:/asio/asio-1.30.2/include -IC:/crow/include
   OBJECT_DIR = CMakeFiles\courseWork.dir
   OBJECT_FILE_DIR = CMakeFiles\courseWork.dir\src\controllers
 
 build CMakeFiles/courseWork.dir/src/controllers/BookController.cpp.obj: CXX_COMPILER__courseWork_unscanned_Debug C$:/Univer/courseWork/src/controllers/BookController.cpp || cmake_object_order_depends_target_courseWork
   DEP_FILE = CMakeFiles\courseWork.dir\src\controllers\BookController.cpp.obj.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  INCLUDES = -IC:/asio/asio-1.30.2/include -IC:/crow/include
+  INCLUDES = -IC:/Univer/courseWork/sqlite -IC:/Univer/courseWork/include -IC:/asio/asio-1.30.2/include -IC:/crow/include
   OBJECT_DIR = CMakeFiles\courseWork.dir
   OBJECT_FILE_DIR = CMakeFiles\courseWork.dir\src\controllers
 
 build CMakeFiles/courseWork.dir/src/services/LoanService.cpp.obj: CXX_COMPILER__courseWork_unscanned_Debug C$:/Univer/courseWork/src/services/LoanService.cpp || cmake_object_order_depends_target_courseWork
   DEP_FILE = CMakeFiles\courseWork.dir\src\services\LoanService.cpp.obj.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  INCLUDES = -IC:/asio/asio-1.30.2/include -IC:/crow/include
+  INCLUDES = -IC:/Univer/courseWork/sqlite -IC:/Univer/courseWork/include -IC:/asio/asio-1.30.2/include -IC:/crow/include
   OBJECT_DIR = CMakeFiles\courseWork.dir
   OBJECT_FILE_DIR = CMakeFiles\courseWork.dir\src\services
 
 build CMakeFiles/courseWork.dir/src/services/UserService.cpp.obj: CXX_COMPILER__courseWork_unscanned_Debug C$:/Univer/courseWork/src/services/UserService.cpp || cmake_object_order_depends_target_courseWork
   DEP_FILE = CMakeFiles\courseWork.dir\src\services\UserService.cpp.obj.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  INCLUDES = -IC:/asio/asio-1.30.2/include -IC:/crow/include
+  INCLUDES = -IC:/Univer/courseWork/sqlite -IC:/Univer/courseWork/include -IC:/asio/asio-1.30.2/include -IC:/crow/include
   OBJECT_DIR = CMakeFiles\courseWork.dir
   OBJECT_FILE_DIR = CMakeFiles\courseWork.dir\src\services
 
 build CMakeFiles/courseWork.dir/src/controllers/LoanController.cpp.obj: CXX_COMPILER__courseWork_unscanned_Debug C$:/Univer/courseWork/src/controllers/LoanController.cpp || cmake_object_order_depends_target_courseWork
   DEP_FILE = CMakeFiles\courseWork.dir\src\controllers\LoanController.cpp.obj.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  INCLUDES = -IC:/asio/asio-1.30.2/include -IC:/crow/include
+  INCLUDES = -IC:/Univer/courseWork/sqlite -IC:/Univer/courseWork/include -IC:/asio/asio-1.30.2/include -IC:/crow/include
   OBJECT_DIR = CMakeFiles\courseWork.dir
   OBJECT_FILE_DIR = CMakeFiles\courseWork.dir\src\controllers
 
 build CMakeFiles/courseWork.dir/src/controllers/LibraryController.cpp.obj: CXX_COMPILER__courseWork_unscanned_Debug C$:/Univer/courseWork/src/controllers/LibraryController.cpp || cmake_object_order_depends_target_courseWork
   DEP_FILE = CMakeFiles\courseWork.dir\src\controllers\LibraryController.cpp.obj.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  INCLUDES = -IC:/asio/asio-1.30.2/include -IC:/crow/include
+  INCLUDES = -IC:/Univer/courseWork/sqlite -IC:/Univer/courseWork/include -IC:/asio/asio-1.30.2/include -IC:/crow/include
   OBJECT_DIR = CMakeFiles\courseWork.dir
   OBJECT_FILE_DIR = CMakeFiles\courseWork.dir\src\controllers
 
 build CMakeFiles/courseWork.dir/src/controllers/UserController.cpp.obj: CXX_COMPILER__courseWork_unscanned_Debug C$:/Univer/courseWork/src/controllers/UserController.cpp || cmake_object_order_depends_target_courseWork
   DEP_FILE = CMakeFiles\courseWork.dir\src\controllers\UserController.cpp.obj.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  INCLUDES = -IC:/asio/asio-1.30.2/include -IC:/crow/include
+  INCLUDES = -IC:/Univer/courseWork/sqlite -IC:/Univer/courseWork/include -IC:/asio/asio-1.30.2/include -IC:/crow/include
   OBJECT_DIR = CMakeFiles\courseWork.dir
   OBJECT_FILE_DIR = CMakeFiles\courseWork.dir\src\controllers
 
 build CMakeFiles/courseWork.dir/src/observer/Observable.cpp.obj: CXX_COMPILER__courseWork_unscanned_Debug C$:/Univer/courseWork/src/observer/Observable.cpp || cmake_object_order_depends_target_courseWork
   DEP_FILE = CMakeFiles\courseWork.dir\src\observer\Observable.cpp.obj.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  INCLUDES = -IC:/asio/asio-1.30.2/include -IC:/crow/include
+  INCLUDES = -IC:/Univer/courseWork/sqlite -IC:/Univer/courseWork/include -IC:/asio/asio-1.30.2/include -IC:/crow/include
   OBJECT_DIR = CMakeFiles\courseWork.dir
   OBJECT_FILE_DIR = CMakeFiles\courseWork.dir\src\observer
 
 build CMakeFiles/courseWork.dir/src/logger/Logger.cpp.obj: CXX_COMPILER__courseWork_unscanned_Debug C$:/Univer/courseWork/src/logger/Logger.cpp || cmake_object_order_depends_target_courseWork
   DEP_FILE = CMakeFiles\courseWork.dir\src\logger\Logger.cpp.obj.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  INCLUDES = -IC:/asio/asio-1.30.2/include -IC:/crow/include
+  INCLUDES = -IC:/Univer/courseWork/sqlite -IC:/Univer/courseWork/include -IC:/asio/asio-1.30.2/include -IC:/crow/include
   OBJECT_DIR = CMakeFiles\courseWork.dir
   OBJECT_FILE_DIR = CMakeFiles\courseWork.dir\src\logger
 
 build CMakeFiles/courseWork.dir/src/notifications/EmailNotificationService.cpp.obj: CXX_COMPILER__courseWork_unscanned_Debug C$:/Univer/courseWork/src/notifications/EmailNotificationService.cpp || cmake_object_order_depends_target_courseWork
   DEP_FILE = CMakeFiles\courseWork.dir\src\notifications\EmailNotificationService.cpp.obj.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  INCLUDES = -IC:/asio/asio-1.30.2/include -IC:/crow/include
+  INCLUDES = -IC:/Univer/courseWork/sqlite -IC:/Univer/courseWork/include -IC:/asio/asio-1.30.2/include -IC:/crow/include
   OBJECT_DIR = CMakeFiles\courseWork.dir
   OBJECT_FILE_DIR = CMakeFiles\courseWork.dir\src\notifications
 
 build CMakeFiles/courseWork.dir/src/notifications/SMSNotificationService.cpp.obj: CXX_COMPILER__courseWork_unscanned_Debug C$:/Univer/courseWork/src/notifications/SMSNotificationService.cpp || cmake_object_order_depends_target_courseWork
   DEP_FILE = CMakeFiles\courseWork.dir\src\notifications\SMSNotificationService.cpp.obj.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  INCLUDES = -IC:/asio/asio-1.30.2/include -IC:/crow/include
+  INCLUDES = -IC:/Univer/courseWork/sqlite -IC:/Univer/courseWork/include -IC:/asio/asio-1.30.2/include -IC:/crow/include
   OBJECT_DIR = CMakeFiles\courseWork.dir
   OBJECT_FILE_DIR = CMakeFiles\courseWork.dir\src\notifications
 
 build CMakeFiles/courseWork.dir/src/notifications/NotificationObserver.cpp.obj: CXX_COMPILER__courseWork_unscanned_Debug C$:/Univer/courseWork/src/notifications/NotificationObserver.cpp || cmake_object_order_depends_target_courseWork
   DEP_FILE = CMakeFiles\courseWork.dir\src\notifications\NotificationObserver.cpp.obj.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  INCLUDES = -IC:/asio/asio-1.30.2/include -IC:/crow/include
+  INCLUDES = -IC:/Univer/courseWork/sqlite -IC:/Univer/courseWork/include -IC:/asio/asio-1.30.2/include -IC:/crow/include
   OBJECT_DIR = CMakeFiles\courseWork.dir
   OBJECT_FILE_DIR = CMakeFiles\courseWork.dir\src\notifications
 
 build CMakeFiles/courseWork.dir/src/notifications/EmailSender.cpp.obj: CXX_COMPILER__courseWork_unscanned_Debug C$:/Univer/courseWork/src/notifications/EmailSender.cpp || cmake_object_order_depends_target_courseWork
   DEP_FILE = CMakeFiles\courseWork.dir\src\notifications\EmailSender.cpp.obj.d
   FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
-  INCLUDES = -IC:/asio/asio-1.30.2/include -IC:/crow/include
+  INCLUDES = -IC:/Univer/courseWork/sqlite -IC:/Univer/courseWork/include -IC:/asio/asio-1.30.2/include -IC:/crow/include
   OBJECT_DIR = CMakeFiles\courseWork.dir
   OBJECT_FILE_DIR = CMakeFiles\courseWork.dir\src\notifications
 
@@ -281,9 +313,9 @@ build CMakeFiles/courseWork.dir/src/notifications/EmailSender.cpp.obj: CXX_COMPI
 #############################################
 # Link the executable courseWork.exe
 
-build courseWork.exe: CXX_EXECUTABLE_LINKER__courseWork_Debug CMakeFiles/courseWork.dir/main.cpp.obj CMakeFiles/courseWork.dir/src/builder/LibraryBuilder.cpp.obj CMakeFiles/courseWork.dir/src/builder/LoanBuilder.cpp.obj CMakeFiles/courseWork.dir/src/builder/UserBuilder.cpp.obj CMakeFiles/courseWork.dir/src/builder/AuthorBuilder.cpp.obj CMakeFiles/courseWork.dir/src/builder/BookBuilder.cpp.obj CMakeFiles/courseWork.dir/src/enteties/Book.cpp.obj CMakeFiles/courseWork.dir/src/enteties/Library.cpp.obj CMakeFiles/courseWork.dir/src/enteties/Loan.cpp.obj CMakeFiles/courseWork.dir/src/enteties/User.cpp.obj CMakeFiles/courseWork.dir/src/enteties/Author.cpp.obj CMakeFiles/courseWork.dir/src/repositories/UserRepository.cpp.obj CMakeFiles/courseWork.dir/src/repositories/BookRepository.cpp.obj CMakeFiles/courseWork.dir/src/repositories/LoanRepository.cpp.obj CMakeFiles/courseWork.dir/src/repositories/LibraryRepository.cpp.obj CMakeFiles/courseWork.dir/src/repositories/AuthorRepository.cpp.obj CMakeFiles/courseWork.dir/src/services/AuthorService.cpp.obj CMakeFiles/courseWork.dir/src/services/BookService.cpp.obj CMakeFiles/courseWork.dir/src/services/LibraryService.cpp.obj CMakeFiles/courseWork.dir/src/controllers/AuthController.cpp.obj CMakeFiles/courseWork.dir/src/controllers/BookController.cpp.obj CMakeFiles/courseWork.dir/src/services/LoanService.cpp.obj CMakeFiles/courseWork.dir/src/services/UserService.cpp.obj CMakeFiles/courseWork.dir/src/controllers/LoanController.cpp.obj CMakeFiles/courseWork.dir/src/controllers/LibraryController.cpp.obj CMakeFiles/courseWork.dir/src/controllers/UserController.cpp.obj CMakeFiles/courseWork.dir/src/observer/Observable.cpp.obj CMakeFiles/courseWork.dir/src/logger/Logger.cpp.obj CMakeFiles/courseWork.dir/src/notifications/EmailNotificationService.cpp.obj CMakeFiles/courseWork.dir/src/notifications/SMSNotificationService.cpp.obj CMakeFiles/courseWork.dir/src/notifications/NotificationObserver.cpp.obj CMakeFiles/courseWork.dir/src/notifications/EmailSender.cpp.obj
+build courseWork.exe: CXX_EXECUTABLE_LINKER__courseWork_Debug CMakeFiles/courseWork.dir/main.cpp.obj CMakeFiles/courseWork.dir/src/builder/LibraryBuilder.cpp.obj CMakeFiles/courseWork.dir/src/builder/LoanBuilder.cpp.obj CMakeFiles/courseWork.dir/src/builder/UserBuilder.cpp.obj CMakeFiles/courseWork.dir/src/builder/AuthorBuilder.cpp.obj CMakeFiles/courseWork.dir/src/builder/BookBuilder.cpp.obj CMakeFiles/courseWork.dir/src/enteties/Book.cpp.obj CMakeFiles/courseWork.dir/src/enteties/Library.cpp.obj CMakeFiles/courseWork.dir/src/enteties/Loan.cpp.obj CMakeFiles/courseWork.dir/src/enteties/User.cpp.obj CMakeFiles/courseWork.dir/src/enteties/Author.cpp.obj CMakeFiles/courseWork.dir/src/repositories/UserRepository.cpp.obj CMakeFiles/courseWork.dir/src/repositories/BookRepository.cpp.obj CMakeFiles/courseWork.dir/src/repositories/LoanRepository.cpp.obj CMakeFiles/courseWork.dir/src/repositories/LibraryRepository.cpp.obj CMakeFiles/courseWork.dir/src/repositories/AuthorRepository.cpp.obj CMakeFiles/courseWork.dir/src/services/AuthorService.cpp.obj CMakeFiles/courseWork.dir/src/services/BookService.cpp.obj CMakeFiles/courseWork.dir/src/services/LibraryService.cpp.obj CMakeFiles/courseWork.dir/src/controllers/AuthController.cpp.obj CMakeFiles/courseWork.dir/src/controllers/BookController.cpp.obj CMakeFiles/courseWork.dir/src/services/LoanService.cpp.obj CMakeFiles/courseWork.dir/src/services/UserService.cpp.obj CMakeFiles/courseWork.dir/src/controllers/LoanController.cpp.obj CMakeFiles/courseWork.dir/src/controllers/LibraryController.cpp.obj CMakeFiles/courseWork.dir/src/controllers/UserController.cpp.obj CMakeFiles/courseWork.dir/src/observer/Observable.cpp.obj CMakeFiles/courseWork.dir/src/logger/Logger.cpp.obj CMakeFiles/courseWork.dir/src/notifications/EmailNotificationService.cpp.obj CMakeFiles/courseWork.dir/src/notifications/SMSNotificationService.cpp.obj CMakeFiles/courseWork.dir/src/notifications/NotificationObserver.cpp.obj CMakeFiles/courseWork.dir/src/notifications/EmailSender.cpp.obj | libsqlite.a || libsqlite.a
   FLAGS = -g
-  LINK_LIBRARIES = -lWs2_32  -lMswsock  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  LINK_LIBRARIES = -lWs2_32  -lMswsock  libsqlite.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   LINK_PATH = -LC:/curl/curl-8.12.1/lib
   OBJECT_DIR = CMakeFiles\courseWork.dir
   POST_BUILD = cd .
@@ -320,6 +352,8 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 
 build courseWork: phony courseWork.exe
 
+build sqlite: phony libsqlite.a
+
 # =============================================================================
 # Folder targets.
 
@@ -328,7 +362,7 @@ build courseWork: phony courseWork.exe
 #############################################
 # Folder: C:/Univer/courseWork/cmake-build-debug
 
-build all: phony courseWork.exe
+build all: phony libsqlite.a courseWork.exe
 
 # =============================================================================
 # Built-in targets
