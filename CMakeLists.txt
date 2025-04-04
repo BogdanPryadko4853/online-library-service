@@ -21,6 +21,8 @@ link_directories("C:/curl/curl-8.12.1/lib")
 # Собираем основной исполняемый файл
 add_executable(courseWork
         main.cpp
+        include/config/DatabaseManager.h
+        src/config/DatabaseManager.cpp
         src/builder/LibraryBuilder.cpp
         src/builder/LoanBuilder.cpp
         src/builder/UserBuilder.cpp
