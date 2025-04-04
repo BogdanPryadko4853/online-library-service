@@ -37,3 +37,8 @@
 34	465	7655074909563795	build.ninja	dea053e3b6485526
 46	913	7655074960890270	CMakeFiles/courseWork.dir/src/config/DatabaseManager.cpp.obj	dcd920008228849
 914	18103	7655074969568786	courseWork.exe	d4a526d1d2803346
+46	2276	7655084690537979	CMakeFiles/courseWork.dir/src/config/DatabaseManager.cpp.obj	dcd920008228849
+60	2627	7655084690677706	CMakeFiles/courseWork.dir/src/repositories/LibraryRepository.cpp.obj	6c28a974cf78bea3
+54	2694	7655084690621946	CMakeFiles/courseWork.dir/src/repositories/BookRepository.cpp.obj	be437d37269f38ba
+2277	3753	7655084712848293	CMakeFiles/courseWork.dir/src/repositories/AuthorRepository.cpp.obj	e282ec752f365a6
+3753	21509	7655084727613101	courseWork.exe	d4a526d1d2803346

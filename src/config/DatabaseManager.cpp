@@ -9,12 +9,33 @@ DatabaseManager::DatabaseManager() {
     }
 
     execute(
-            "CREATE TABLE IF NOT EXISTS authors ("
+            "CREATE TABLE IF NOT EXISTS books ("
             "id INTEGER PRIMARY KEY AUTOINCREMENT, "
-            "first_name TEXT NOT NULL, "
-            "last_name TEXT NOT NULL, "
-            "biography TEXT, "
-            "UNIQUE(first_name, last_name)"
+            "title TEXT NOT NULL, "
+            "description TEXT, "
+            "author_id INTEGER NOT NULL, "
+            "FOREIGN KEY(author_id) REFERENCES authors(id), "
+            "UNIQUE(title)"
+            ");"
+    );
+
+    execute(
+            "CREATE TABLE IF NOT EXISTS libraries ("
+            "id INTEGER PRIMARY KEY AUTOINCREMENT, "
+            "name TEXT NOT NULL, "
+            "description TEXT, "
+            "address TEXT NOT NULL, "
+            "UNIQUE(name)"
+            ");"
+    );
+
+    execute(
+            "CREATE TABLE IF NOT EXISTS library_books ("
+            "library_id INTEGER NOT NULL, "
+            "book_id INTEGER NOT NULL, "
+            "PRIMARY KEY (library_id, book_id), "
+            "FOREIGN KEY(library_id) REFERENCES libraries(id) ON DELETE CASCADE, "
+            "FOREIGN KEY(book_id) REFERENCES books(id) ON DELETE CASCADE"
             ");"
     );
 }
