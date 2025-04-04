@@ -38,6 +38,27 @@ DatabaseManager::DatabaseManager() {
             "FOREIGN KEY(book_id) REFERENCES books(id) ON DELETE CASCADE"
             ");"
     );
+
+    execute(
+            "CREATE TABLE IF NOT EXISTS users ("
+            "id INTEGER PRIMARY KEY AUTOINCREMENT, "
+            "first_name TEXT NOT NULL, "
+            "last_name TEXT NOT NULL, "
+            "password TEXT NOT NULL"
+            ");"
+    );
+
+    execute(
+            "CREATE TABLE IF NOT EXISTS loans ("
+            "id INTEGER PRIMARY KEY AUTOINCREMENT, "
+            "book_id INTEGER NOT NULL, "
+            "user_id INTEGER NOT NULL, "
+            "loan_date TEXT NOT NULL, "
+            "return_date TEXT, "
+            "FOREIGN KEY(book_id) REFERENCES books(id), "
+            "FOREIGN KEY(user_id) REFERENCES users(id)"
+            ");"
+    );
 }
 
 DatabaseManager::~DatabaseManager() {

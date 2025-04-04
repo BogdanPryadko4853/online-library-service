@@ -30,6 +30,9 @@ public:
 
     void addLoan(const std::shared_ptr<Loan>& loan);
     void removeLoan(const std::shared_ptr<Loan>& loan);
+
+    std::string getPassword();
+
 };
 
 #endif

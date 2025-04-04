@@ -25,6 +25,8 @@ public:
 
     [[nodiscard]] std::shared_ptr<User> findById(int id) const override;
 
+    void add(const std::shared_ptr<User>& user);
+
     [[nodiscard]] std::vector<std::shared_ptr<User>> getAll() const override;
 };
 
