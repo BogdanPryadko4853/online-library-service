@@ -1,4 +1,5 @@
 #include "../../include/repositories/LibraryRepository.h"
+#include "../../include/config/DatabaseManager.h"
 #include <algorithm>
 
 std::shared_ptr<LibraryRepository> LibraryRepository::instance = nullptr;
@@ -21,7 +22,17 @@ void LibraryRepository::add(const std::shared_ptr<Library> &library) {
         throw std::runtime_error("Library with this name already exists");
     }
 
-    Repository<Library>::add(library);
+    auto& db = DatabaseManager::getInstance();
+    std::string sql = "INSERT INTO libraries (name, description, address) VALUES (?, ?, ?)";
+
+    if (!db.executeWithParams(sql, {
+            library->getName(),
+            library->getDescription(),
+            library->getAddress()
+    })) {
+        throw std::runtime_error("Failed to add library to database");
+    }
+
     notifyObservers("Added library: ID=" + std::to_string(library->getId()) +
                     ", Name=" + library->getName());
 }
@@ -31,57 +42,95 @@ void LibraryRepository::remove(const std::shared_ptr<Library> &library) {
         throw std::runtime_error("Library not found");
     }
 
-    Repository<Library>::remove(library);
+    auto& db = DatabaseManager::getInstance();
+    std::string sql = "DELETE FROM libraries WHERE id = ?";
+
+    if (!db.executeWithParams(sql, {std::to_string(library->getId())})) {
+        throw std::runtime_error("Failed to remove library from database");
+    }
+
     notifyObservers("Removed library: ID=" + std::to_string(library->getId()));
 }
 
 std::shared_ptr<Library> LibraryRepository::findById(int id) const {
-    auto library = Repository<Library>::findById(id);
+    auto& db = DatabaseManager::getInstance();
+    auto result = db.query("SELECT * FROM libraries WHERE id = " + std::to_string(id));
+
+    if (result.empty()) {
+        return nullptr;
+    }
+
+    auto row = result[0];
+    auto library = std::make_shared<Library>(
+            std::stoi(row[0]),  // id
+            row[1],             // name
+            row[2],             // description
+            row[3]              // address
+    );
+
     notifyObservers("Found library with id " + std::to_string(id));
     return library;
 }
 
 std::vector<std::shared_ptr<Library>> LibraryRepository::getAll() const {
-    auto libraries = Repository<Library>::getAll();
+    auto& db = DatabaseManager::getInstance();
+    auto result = db.query("SELECT * FROM libraries");
+
+    std::vector<std::shared_ptr<Library>> libraries;
+    for (const auto& row : result) {
+        libraries.push_back(std::make_shared<Library>(
+                std::stoi(row[0]), row[1], row[2], row[3]
+        ));
+    }
+
     notifyObservers("Retrieved all libraries (count: " + std::to_string(libraries.size()) + ")");
     return libraries;
 }
 
 std::vector<std::shared_ptr<Library>> LibraryRepository::findByName(const std::string &name) const {
-    std::vector<std::shared_ptr<Library>> result;
-    auto all = getAll();
+    auto& db = DatabaseManager::getInstance();
+    auto result = db.query(
+            "SELECT * FROM libraries WHERE name LIKE '%" + name + "%'"
+    );
 
-    std::copy_if(all.begin(), all.end(), std::back_inserter(result),
-                 [&name](const auto &library) {
-                     return library->getName().find(name) != std::string::npos;
-                 });
+    std::vector<std::shared_ptr<Library>> libraries;
+    for (const auto& row : result) {
+        libraries.push_back(std::make_shared<Library>(
+                std::stoi(row[0]), row[1], row[2], row[3]
+        ));
+    }
 
-    notifyObservers("Search by name: '" + name + "' found " + std::to_string(result.size()) + " libraries");
-    return result;
+    notifyObservers("Search by name: '" + name + "' found " + std::to_string(libraries.size()) + " libraries");
+    return libraries;
 }
 
 std::vector<std::shared_ptr<Library>> LibraryRepository::findByAddress(const std::string &address) const {
-    std::vector<std::shared_ptr<Library>> result;
-    auto all = getAll();
+    auto& db = DatabaseManager::getInstance();
+    auto result = db.query(
+            "SELECT * FROM libraries WHERE address LIKE '%" + address + "%'"
+    );
 
-    std::copy_if(all.begin(), all.end(), std::back_inserter(result),
-                 [&address](const auto &library) {
-                     return library->getAddress().find(address) != std::string::npos;
-                 });
+    std::vector<std::shared_ptr<Library>> libraries;
+    for (const auto& row : result) {
+        libraries.push_back(std::make_shared<Library>(
+                std::stoi(row[0]), row[1], row[2], row[3]
+        ));
+    }
 
-    notifyObservers("Search by address: '" + address + "' found " + std::to_string(result.size()) + " libraries");
-    return result;
+    notifyObservers("Search by address: '" + address + "' found " + std::to_string(libraries.size()) + " libraries");
+    return libraries;
 }
 
-
 bool LibraryRepository::exists(int id) const {
-    return findById(id) != nullptr;
+    auto& db = DatabaseManager::getInstance();
+    auto result = db.query("SELECT 1 FROM libraries WHERE id = " + std::to_string(id));
+    return !result.empty();
 }
 
 bool LibraryRepository::nameExists(const std::string &name) const {
-    auto all = getAll();
-    return std::any_of(all.begin(), all.end(),
-                       [&name](const auto &library) {
-                           return library->getName() == name;
-                       });
+    auto& db = DatabaseManager::getInstance();
+    auto result = db.query(
+            "SELECT 1 FROM libraries WHERE name = '" + name + "'"
+    );
+    return !result.empty();
 }
