@@ -1,4 +1,5 @@
 #include "../../include/repositories/AuthorRepository.h"
+#include "../../include/config/DatabaseManager.h"
 #include <algorithm>
 
 std::shared_ptr<AuthorRepository> AuthorRepository::instance = nullptr;
@@ -21,9 +22,18 @@ void AuthorRepository::add(const std::shared_ptr<Author> &author) {
         throw std::runtime_error("Author with this name already exists");
     }
 
-    Repository<Author>::add(author);
-    notifyObservers("Added author: ID=" + std::to_string(author->getId()) +
-                    ", Name=" + author->getFirstName() + " " + author->getLastName());
+    auto &db = DatabaseManager::getInstance();
+    std::string sql = "INSERT INTO authors (first_name, last_name, biography) VALUES (?, ?, ?)";
+
+    if (!db.executeWithParams(sql, {
+            author->getFirstName(),
+            author->getLastName(),
+            author->getBio()
+    })) {
+        throw std::runtime_error("Failed to add author to database");
+    }
+
+    notifyObservers("Added author: " + author->getFirstName() + " " + author->getLastName());
 }
 
 void AuthorRepository::remove(const std::shared_ptr<Author> &author) {
@@ -31,39 +41,63 @@ void AuthorRepository::remove(const std::shared_ptr<Author> &author) {
         throw std::runtime_error("Author not found");
     }
 
-    Repository<Author>::remove(author);
+    auto &db = DatabaseManager::getInstance();
+    std::string sql = "DELETE FROM authors WHERE id = ?";
+
+    if (!db.executeWithParams(sql, {std::to_string(author->getId())})) {
+        throw std::runtime_error("Failed to remove author from database");
+    }
+
     notifyObservers("Removed author: ID=" + std::to_string(author->getId()));
 }
 
 std::shared_ptr<Author> AuthorRepository::findById(int id) const {
-    auto all = getAll();
-    auto it = std::find_if(all.begin(), all.end(),
-                           [id](const auto &author) { return author->getId() == id; });
-    return it != all.end() ? *it : nullptr;
+    auto &db = DatabaseManager::getInstance();
+    auto result = db.query("SELECT * FROM authors WHERE id = " + std::to_string(id));
+
+    if (result.empty()) {
+        return nullptr;
+    }
+
+    auto row = result[0];
+    return std::make_shared<Author>(
+            std::stoi(row[0]),
+            row[1],
+            row[2],
+            row[3]
+    );
 }
 
 std::vector<std::shared_ptr<Author>> AuthorRepository::findByName(const std::string &name) const {
-    std::vector<std::shared_ptr<Author>> result;
-    auto all = getAll();
+    auto &db = DatabaseManager::getInstance();
+    auto result = db.query(
+            "SELECT * FROM authors WHERE first_name LIKE '%" + name + "%' OR last_name LIKE '%" + name + "%'"
+    );
 
-    std::copy_if(all.begin(), all.end(), std::back_inserter(result),
-                 [&name](const auto &author) {
-                     return author->getFirstName().find(name) != std::string::npos ||
-                            author->getLastName().find(name) != std::string::npos;
-                 });
+    std::vector<std::shared_ptr<Author>> authors;
+    for (const auto &row: result) {
+        authors.push_back(std::make_shared<Author>(
+                std::stoi(row[0]),
+                row[1],
+                row[2],
+                row[3]
+        ));
+    }
 
-    return result;
+    return authors;
 }
 
 bool AuthorRepository::exists(int id) const {
-    return findById(id) != nullptr;
+    auto &db = DatabaseManager::getInstance();
+    auto result = db.query("SELECT 1 FROM authors WHERE id = " + std::to_string(id));
+    return !result.empty();
 }
 
 bool AuthorRepository::nameExists(const std::string &firstName, const std::string &lastName) const {
-    auto all = getAll();
-    return std::any_of(all.begin(), all.end(),
-                       [&](const auto &author) {
-                           return author->getFirstName() == firstName &&
-                                  author->getLastName() == lastName;
-                       });
+    auto &db = DatabaseManager::getInstance();
+    auto result = db.query(
+            "SELECT 1 FROM authors WHERE first_name = '" + firstName +
+            "' AND last_name = '" + lastName + "'"
+    );
+    return !result.empty();
 }
