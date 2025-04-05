@@ -1,4 +1,5 @@
 # 🏛️ Online Library Service 
+<img src="img/crow.jpeg" alt="">
 **REST API для управления библиотекой на C++ с использованием микрофреймворка Crow**
 
 [![C++](https://img.shields.io/badge/C++-17/20-blue.svg)](https://isocpp.org/)
@@ -52,7 +53,7 @@ curl http://localhost:8080/books/1
 ```
 🖼️ Скриншоты работы
 
-<img src="image/gm1.png" alt="">
-<img src="image/gm1.png" alt="">
-<img src="image/gm1.png" alt="">
-<img src="image/gm1.png" alt="">
+<img src="img/start.png" alt="">
+<img src="img/get.png" alt="">
+<img src="img/id.png" alt="">
+<img src="img/post.png" alt="">
