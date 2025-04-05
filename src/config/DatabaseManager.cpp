@@ -59,6 +59,15 @@ DatabaseManager::DatabaseManager() {
             "FOREIGN KEY(user_id) REFERENCES users(id)"
             ");"
     );
+    execute(
+            "CREATE TABLE IF NOT EXISTS authors ("
+            "id INTEGER PRIMARY KEY AUTOINCREMENT, "
+            "first_name TEXT NOT NULL, "
+            "last_name TEXT NOT NULL, "
+            "biography TEXT, "
+            "UNIQUE(first_name, last_name)"
+            ");"
+    );
 }
 
 DatabaseManager::~DatabaseManager() {

@@ -4,11 +4,10 @@ project(courseWork)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_TOOLCHAIN_FILE "C:/Users/bogda/.vcpkg-clion/vcpkg/scripts/buildsystems/vcpkg.cmake")
 
-# Сначала объявляем библиотеку sqlite
+
 add_library(sqlite STATIC sqlite/sqlite3.c)
 target_include_directories(sqlite PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/sqlite)
 
-# Включаем директории
 include_directories(
         ${CMAKE_CURRENT_SOURCE_DIR}/sqlite
         ${CMAKE_CURRENT_SOURCE_DIR}/include
@@ -50,10 +49,6 @@ add_executable(courseWork
         src/controllers/UserController.cpp
         src/observer/Observable.cpp
         src/logger/Logger.cpp
-        src/notifications/EmailNotificationService.cpp
-        src/notifications/SMSNotificationService.cpp
-        src/notifications/NotificationObserver.cpp
-        src/notifications/EmailSender.cpp
 )
 
 target_link_libraries(courseWork PRIVATE
