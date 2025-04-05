@@ -21,15 +21,32 @@
 - Транзакции SQLite
 - JSON-сериализация
 
-## ⚙️ Установка
-```bash
-# 1. Клонировать репозиторий
-git clone https://github.com/BogdanPryadko4853/online-library-service.git
+📡 Примеры запросов
 
-# 2. Собрать проект
-cd online-library-service
-mkdir build && cd build
-cmake .. && make
+📖 Получить все книги
+```curl
+curl http://localhost:8080/books
 
-# 3. Запустить сервер
-./online_library_service
+[
+  {
+    "id": 1,
+    "title": "Clean Code",
+    "description": "Руководство по написанию читаемого кода",
+    "authorId": 1
+  }
+]
+```
+
+🔍 Получить книгу по ID
+```curl
+curl http://localhost:8080/books/1
+
+{
+  "id": 1,
+  "title": "Clean Code",
+  "description": "Руководство по написанию читаемого кода",
+  "authorId": 1
+}
+```
+
+<img src="image/gm1.png" alt="Snake Game">
