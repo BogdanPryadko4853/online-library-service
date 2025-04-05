@@ -26,7 +26,8 @@
 📖 Получить все книги
 ```curl
 curl http://localhost:8080/books
-
+```
+```curl
 [
   {
     "id": 1,
@@ -40,7 +41,8 @@ curl http://localhost:8080/books
 🔍 Получить книгу по ID
 ```curl
 curl http://localhost:8080/books/1
-
+```
+```curl
 {
   "id": 1,
   "title": "Clean Code",
@@ -48,5 +50,9 @@ curl http://localhost:8080/books/1
   "authorId": 1
 }
 ```
+🖼️ Скриншоты работы
 
-<img src="image/gm1.png" alt="Snake Game">
+<img src="image/gm1.png" alt="">
+<img src="image/gm1.png" alt="">
+<img src="image/gm1.png" alt="">
+<img src="image/gm1.png" alt="">
